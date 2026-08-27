@@ -1,0 +1,416 @@
+@media (max-width: 1024px) {
+  .site-nav a {
+    padding: 10px 11px;
+    font-size: 0.74rem;
+  }
+
+  .section {
+    padding: 86px 0;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-card {
+    min-height: 540px;
+    padding: 28px;
+  }
+
+  .resource-dialog {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+
+  .modal-section {
+    padding-inline: 34px;
+  }
+
+  .experience-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card {
+    min-height: auto;
+  }
+
+  .project-visual {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: min(calc(100% - 36px), var(--max-width));
+  }
+
+  .header-inner {
+    min-height: 70px;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 102;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .site-nav {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px 30px;
+    background: rgba(255, 255, 255, 0.98);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .site-nav.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: min(100%, 420px);
+  }
+
+  .site-nav li,
+  .site-nav a {
+    width: 100%;
+  }
+
+  .site-nav a {
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .landing-hero {
+    padding-top: 52px;
+  }
+
+  .hero-copy {
+    padding-bottom: 48px;
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .archive-card {
+    grid-column: span 12;
+    min-height: 280px;
+  }
+
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-card {
+    min-height: auto;
+  }
+
+  .resource-summary {
+    min-height: 0;
+  }
+
+  .resource-modal {
+    padding: 12px;
+  }
+
+  .resource-dialog {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: calc(100vh - 24px);
+    border-radius: 24px;
+  }
+
+  .modal-close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .modal-sidebar {
+    padding: 18px 64px 14px 16px;
+  }
+
+  .modal-sidebar-head {
+    padding: 0 8px 14px;
+  }
+
+  .modal-category {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+  }
+
+  .modal-category-button {
+    grid-template-columns: 26px auto;
+    min-width: max-content;
+    padding: 9px 12px;
+  }
+
+  .category-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .modal-category-button:hover,
+  .modal-category-button:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .modal-sidebar-note {
+    display: none;
+  }
+
+  .modal-section {
+    padding: 42px 28px 52px;
+  }
+
+  .modal-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 35px;
+  }
+
+  .modal-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-visual,
+  .modal-intro-card {
+    min-height: 210px;
+  }
+
+  .modal-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-facts div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .modal-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .process-grid,
+  .project-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    padding: 78px 0 66px;
+  }
+
+  .page-hero::after {
+    right: -110px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 36px;
+  }
+
+  .section-head,
+  .footer-main {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    width: min(calc(100% - 28px), var(--max-width));
+  }
+
+  .brand {
+    font-size: 0.78rem;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+
+  .display-title {
+    font-size: clamp(2.7rem, 15vw, 4.2rem);
+  }
+
+  .hero-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-meta span + span::before {
+    display: none;
+  }
+
+  .hero-visual {
+    min-height: 340px;
+    border-radius: 24px;
+  }
+
+  .visual-note {
+    right: 18px;
+    bottom: 18px;
+    width: calc(100% - 36px);
+    padding: 20px;
+  }
+
+  .archive-card {
+    padding: 26px;
+  }
+
+  .resource-card {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .resource-card-head {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 42px;
+  }
+
+  .resource-type {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .resource-details div {
+    grid-template-columns: 72px 1fr;
+    gap: 10px;
+  }
+
+  .resource-modal {
+    padding: 0;
+  }
+
+  .resource-dialog {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .modal-sidebar {
+    padding-left: 10px;
+  }
+
+  .modal-sidebar-head {
+    padding-left: 10px;
+  }
+
+  .modal-section {
+    padding: 36px 20px 46px;
+  }
+
+  .modal-title-row h2 {
+    font-size: 2.35rem;
+  }
+
+  .review-summary {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 22px;
+  }
+
+  .archive-card .number {
+    margin-bottom: 52px;
+  }
+
+  .card-arrow {
+    top: 22px;
+    right: 22px;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .content-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    min-height: auto;
+  }
+
+  .metric-label {
+    margin-bottom: 20px;
+  }
+
+  .chart-card {
+    padding: 22px;
+  }
+
+  .bar-chart {
+    gap: 7px;
+    padding-inline: 0;
+  }
+
+  .project-visual {
+    min-height: 330px;
+  }
+
+  .project-visual::before {
+    left: 10%;
+    width: 220px;
+    height: 280px;
+  }
+
+  .project-copy {
+    padding: 34px 26px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-main {
+    padding-bottom: 38px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

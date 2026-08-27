@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="관광 콘텐츠의 SNS 성과를 살펴보는 데이터 대시보드입니다.">
+  <title>SNS Dashboard | Tourism Content Archive</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문 바로가기</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Tourism Content Archive 홈"><span class="brand-mark">TC</span><span>TOURISM ARCHIVE</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="report.html">REPORT</a></li>
+          <li><a href="contents.html">CONTENTS</a></li>
+          <li><a class="active" aria-current="page" href="sns.html">SNS</a></li>
+          <li><a href="final-project.html">FINAL PROJECT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-index"><span></span>03 / ANALYTICS</div>
+        <h1 class="page-title">SNS Dashboard</h1>
+        <p class="lead">업로드한 콘텐츠의 반응 데이터를 읽고, 더 나은 다음 기획을 위한 인사이트를 발견합니다.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Performance Overview</span><h2 class="section-title">콘텐츠 성과 요약</h2></div>
+          <p class="lead">현재 수치는 레이아웃 확인을 위한 샘플 데이터입니다.</p>
+        </div>
+        <div class="dashboard-grid">
+          <article class="metric-card"><span class="metric-label">TOTAL REACH</span><strong class="metric-value">128.4K</strong><span class="metric-change">↑ 18.2% 지난달 대비</span></article>
+          <article class="metric-card"><span class="metric-label">ENGAGEMENT</span><strong class="metric-value">8.7%</strong><span class="metric-change">↑ 2.1% 지난달 대비</span></article>
+          <article class="metric-card"><span class="metric-label">VIDEO VIEWS</span><strong class="metric-value">76.2K</strong><span class="metric-change">↑ 24.6% 지난달 대비</span></article>
+          <article class="metric-card"><span class="metric-label">SAVES</span><strong class="metric-value">3,842</strong><span class="metric-change">↑ 11.4% 지난달 대비</span></article>
+        </div>
+
+        <div class="chart-layout">
+          <article class="chart-card">
+            <h3>주간 도달 추이</h3>
+            <p class="chart-description">최근 7주 동안 콘텐츠가 도달한 사용자 수</p>
+            <div class="bar-chart" role="img" aria-label="1주 차부터 7주 차까지 점차 증가하는 주간 도달 막대그래프">
+              <div class="bar-item"><div class="bar" style="--height: 34%"></div><span>1W</span></div>
+              <div class="bar-item"><div class="bar" style="--height: 48%"></div><span>2W</span></div>
+              <div class="bar-item"><div class="bar" style="--height: 43%"></div><span>3W</span></div>
+              <div class="bar-item"><div class="bar" style="--height: 67%"></div><span>4W</span></div>
+              <div class="bar-item"><div class="bar" style="--height: 58%"></div><span>5W</span></div>
+              <div class="bar-item"><div class="bar" style="--height: 82%"></div><span>6W</span></div>
+              <div class="bar-item"><div class="bar" style="--height: 94%"></div><span>7W</span></div>
+            </div>
+          </article>
+          <article class="chart-card">
+            <h3>인기 콘텐츠</h3>
+            <p class="chart-description">참여율을 기준으로 정렬한 콘텐츠 순위</p>
+            <ol class="ranking-list">
+              <li><span class="rank-number">01</span><span class="rank-title">부산, 파란 산책의 기록</span><span class="rank-value">12.8%</span></li>
+              <li><span class="rank-number">02</span><span class="rank-title">숲의 소리를 걷다</span><span class="rank-value">11.6%</span></li>
+              <li><span class="rank-number">03</span><span class="rank-title">야시장의 다섯 접시</span><span class="rank-value">9.4%</span></li>
+              <li><span class="rank-number">04</span><span class="rank-title">나만의 여행 온도</span><span class="rank-value">8.9%</span></li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">Insight Notes</span><h2 class="section-title">다음 기획을 위한 관찰</h2></div></div>
+        <div class="process-grid">
+          <article class="info-card"><h3>저장하고 싶은 정보</h3><p>구체적인 여행 코스와 장소 정보가 포함된 카드뉴스에서 저장 반응이 높았습니다.</p></article>
+          <article class="info-card"><h3>머무르게 하는 영상</h3><p>풍경과 현장음으로 시작한 영상이 빠른 설명형 영상보다 시청 지속 시간이 길었습니다.</p></article>
+          <article class="info-card"><h3>참여를 만드는 질문</h3><p>취향을 묻는 짧은 문장과 선택형 게시물이 댓글 참여를 자연스럽게 이끌었습니다.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main"><p class="footer-title">관광의 새로운 매력을<br>콘텐츠로 연결합니다.</p><nav class="footer-nav" aria-label="푸터 메뉴"><a href="report.html">REPORT</a><a href="contents.html">CONTENTS</a><a href="sns.html">SNS</a><a href="final-project.html">FINAL PROJECT</a></nav></div>
+      <div class="footer-bottom"><span>SK Planet Tourism Content Archive</span><span>© <span data-current-year></span> All rights reserved.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

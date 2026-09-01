@@ -1,4 +1,82 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const pageMap = [
+    ["index.html", "HOME"],
+    ["report.html", "REPORT"],
+    ["contents.html", "CONTENTS"],
+    ["sns.html", "SNS"],
+    ["final-project.html", "FINAL PROJECT"],
+    ["brand.html", "BRAND"]
+  ];
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const brandLink = document.querySelector(".brand");
+  const navList = document.querySelector(".site-nav ul");
+  const footer = document.querySelector(".site-footer");
+  const main = document.querySelector("main");
+
+  if (brandLink) {
+    brandLink.setAttribute("aria-label", "771 LAYERS 홈");
+    brandLink.innerHTML = '<img class="brand-mark" src="assets/images/brand/771-layers-logo-clean.png" alt="771 LAYERS">';
+  }
+
+  if (navList) {
+    navList.innerHTML = pageMap.map(([href, label]) => {
+      const active = href === currentPage ? ' class="active" aria-current="page"' : "";
+      return `<li><a${active} href="${href}">${label}</a></li>`;
+    }).join("");
+  }
+
+  if (footer) {
+    const footerMain = footer.querySelector(".footer-main");
+    const footerBottom = footer.querySelector(".footer-bottom");
+    if (footerMain) {
+      footerMain.innerHTML = `
+        <div>
+          <a class="footer-brand" href="index.html" aria-label="771 LAYERS 홈"><img src="assets/images/brand/771-layers-logo-clean.png" alt="771 LAYERS"></a>
+          <p class="footer-title">부산의 시간과 장소를<br>새로운 콘텐츠의 층으로 쌓습니다.</p>
+          <div class="footer-social" aria-label="소셜 미디어">
+            <a class="social-link" href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer" aria-label="휴양부산 인스타그램 새 창에서 열기"><span class="social-icon instagram" aria-hidden="true"></span><span>Instagram</span></a>
+            <a class="social-link" href="https://www.youtube.com/@BusanHuyangJoa" target="_blank" rel="noopener noreferrer" aria-label="부산 휴양좋아 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav>`;
+    }
+    if (footerBottom) footerBottom.firstElementChild.textContent = "771 LAYERS · Busan Tourism Content Archive";
+  }
+
+  if (main && currentPage !== "index.html") {
+    const currentIndex = pageMap.findIndex(([href]) => href === currentPage);
+    if (currentIndex > 0) {
+      const previous = pageMap[currentIndex - 1];
+      const next = pageMap[currentIndex + 1] || pageMap[0];
+      const switcher = document.createElement("nav");
+      switcher.className = "page-switcher";
+      switcher.setAttribute("aria-label", "페이지 이동");
+      switcher.innerHTML = `<div class="container page-switcher-inner"><a href="${previous[0]}"><small>PREVIOUS</small><span>← ${previous[1]}</span></a><a class="page-home-link" href="index.html"><small>ARCHIVE</small><span>HOME</span></a><a href="${next[0]}"><small>NEXT</small><span>${next[1]} →</span></a></div>`;
+      main.insertAdjacentElement("afterend", switcher);
+    }
+  }
+
+  const brandHero = document.querySelector("[data-brand-hero]");
+  if (brandHero && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const layers = brandHero.querySelectorAll("[data-depth]");
+    brandHero.addEventListener("pointermove", (event) => {
+      const rect = brandHero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      layers.forEach((layer) => {
+        const depth = Number(layer.dataset.depth || 0);
+        layer.style.setProperty("--parallax-x", `${x * depth * 22}px`);
+        layer.style.setProperty("--parallax-y", `${y * depth * 16}px`);
+      });
+    });
+    brandHero.addEventListener("pointerleave", () => {
+      layers.forEach((layer) => {
+        layer.style.setProperty("--parallax-x", "0px");
+        layer.style.setProperty("--parallax-y", "0px");
+      });
+    });
+  }
+
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".site-nav");
   const navLinks = document.querySelectorAll(".site-nav a");

@@ -1942,6 +1942,12 @@ h3 {
 .type-specimen p { margin: 0; color: rgba(26,26,26,.68); }
 .brand-rule-card { border-radius: 14px; box-shadow: none; }
 .brand-rule-card h3 { margin-top: 26px; font-size: 1.2rem; }
+.cardnews-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.cardnews-item { position: relative; overflow: hidden; border: 1px solid var(--line); background: var(--white); transition: transform .2s ease, box-shadow .2s ease; }
+.cardnews-item:hover, .cardnews-item:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow); outline: none; }
+.cardnews-item img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.cardnews-item span { position: absolute; right: 12px; bottom: 12px; padding: 6px 9px; background: rgba(26,26,26,.82); color: var(--white); font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
+.modal-category-button[hidden], .modal-section[hidden] { display: none; }
 .archive-card, .resource-card, .content-card, .metric-card, .chart-card { box-shadow: none; }
 .archive-card:hover, .resource-card:hover, .content-card:hover { box-shadow: var(--shadow); }
 

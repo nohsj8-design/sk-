@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="관광 자원 조사와 SNS 콘텐츠 기획 자료를 정리한 리포트입니다.">
   <title>Report | Tourism Content Archive</title>
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
   <link rel="stylesheet" href="css/responsive.css">
-  <script src="js/main.js?v=5" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -141,6 +141,10 @@
             <span class="category-icon" aria-hidden="true">◇</span>
             <span>체험 프로그램</span>
           </button>
+          <button class="modal-category-button" type="button" data-modal-target="modal-cardnews" data-cardnews-button hidden>
+            <span class="category-icon" aria-hidden="true">▤</span>
+            <span>카드뉴스</span>
+          </button>
           <button class="modal-category-button" type="button" data-modal-target="modal-reviews">
             <span class="category-icon" aria-hidden="true">✦</span>
             <span>방문자 후기</span>
@@ -189,6 +193,14 @@
             <p>공간을 보고 듣고 걸으며 관광 자원의 매력을 발견하는 세 가지 경험입니다.</p>
           </div>
           <div class="experience-grid" data-modal-program-list></div>
+        </section>
+
+        <section class="modal-section modal-cardnews-section" id="modal-cardnews" data-modal-section data-cardnews-section hidden>
+          <div class="modal-section-heading">
+            <div><span class="modal-section-label">03 / CARD NEWS</span><h3>바다 말고, 조용한 부산</h3></div>
+            <p>범어사에서 발견하는 부산 내륙 휴양의 새로운 장면을 네 장의 카드뉴스로 소개합니다.</p>
+          </div>
+          <div class="cardnews-grid" data-modal-cardnews-list></div>
         </section>
 
         <section class="modal-section" id="modal-reviews" data-modal-section>

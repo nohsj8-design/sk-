@@ -42,6 +42,8 @@
     grid-template-columns: 1fr;
   }
 
+  .cardnews-grid { grid-template-columns: 1fr; }
+
   .experience-card {
     min-height: auto;
   }

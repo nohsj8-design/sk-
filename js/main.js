@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (brandLink) {
     brandLink.setAttribute("aria-label", "771 LAYERS 홈");
-    brandLink.innerHTML = '<img class="brand-mark" src="assets/images/brand/771-layers-logo-clean.png" alt="771 LAYERS">';
+    brandLink.innerHTML = '<img class="brand-mark" src="assets/images/brand/771-layers-logo-white.png" alt="771 LAYERS">';
   }
 
   if (navList) {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (footerMain) {
       footerMain.innerHTML = `
         <div>
-          <a class="footer-brand" href="index.html" aria-label="771 LAYERS 홈"><img src="assets/images/brand/771-layers-logo-clean.png" alt="771 LAYERS"></a>
+          <a class="footer-brand" href="index.html" aria-label="771 LAYERS 홈"><img src="assets/images/brand/771-layers-logo-white.png" alt="771 LAYERS"></a>
           <p class="footer-title">부산의 시간과 장소를<br>새로운 콘텐츠의 층으로 쌓습니다.</p>
           <div class="footer-social" aria-label="소셜 미디어">
             <a class="social-link" href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer" aria-label="휴양부산 인스타그램 새 창에서 열기"><span class="social-icon instagram" aria-hidden="true"></span><span>Instagram</span></a>
@@ -188,6 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ["SLOW MOMENT", "사찰 문화 감상", "전각과 마당을 둘러보며 산사에 축적된 시간과 차분한 분위기를 경험합니다.", null, ""],
         ["WARM REST", "온천장 휴식", "산책 뒤 온천장으로 이동해 따뜻한 온천을 즐기며 여정을 편안하게 마무리합니다.", null, ""]
       ],
+      cardnews: [
+        "assets/images/cardnews/beomeosa-oncheonjang/cover.jpg",
+        "assets/images/cardnews/beomeosa-oncheonjang/2.jpg",
+        "assets/images/cardnews/beomeosa-oncheonjang/3.jpg",
+        "assets/images/cardnews/beomeosa-oncheonjang/4.jpg"
+      ],
       quote: "방문자 후기를 준비하고 있습니다.",
       reviews: []
     },
@@ -226,6 +232,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviewList = resourceModal.querySelector("[data-modal-review-list]");
     const reviewSummary = resourceModal.querySelector(".review-summary");
     const placeImage = resourceModal.querySelector("[data-modal-place-image]");
+    const cardnewsButton = resourceModal.querySelector("[data-cardnews-button]");
+    const cardnewsSection = resourceModal.querySelector("[data-cardnews-section]");
+    const cardnewsList = resourceModal.querySelector("[data-modal-cardnews-list]");
     let previouslyFocused = null;
     let scrollFrame = null;
 
@@ -264,6 +273,17 @@ document.addEventListener("DOMContentLoaded", () => {
       `).join("");
     };
 
+    const renderCardnews = (items = []) => {
+      const hasCardnews = items.length > 0;
+      cardnewsButton.hidden = !hasCardnews;
+      cardnewsSection.hidden = !hasCardnews;
+      cardnewsList.innerHTML = hasCardnews ? items.map((src, index) => `
+        <a class="cardnews-item" href="${src}" target="_blank" rel="noopener" aria-label="카드뉴스 ${index + 1}페이지 크게 보기">
+          <img src="${src}" alt="바다 말고, 조용한 부산 카드뉴스 ${index + 1}페이지">
+          <span>${String(index + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}</span>
+        </a>`).join("") : "";
+    };
+
     const setActiveCategory = (targetId) => {
       categoryButtons.forEach((button) => {
         button.classList.toggle("active", button.dataset.modalTarget === targetId);
@@ -289,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
       placeImage.src = data.heroImage;
       placeImage.alt = data.heroAlt;
       renderPrograms(data.programs);
+      renderCardnews(data.cardnews);
       renderReviews(data.reviews);
 
       resourceModal.hidden = false;
@@ -330,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalContent.addEventListener("scroll", () => {
       if (scrollFrame) cancelAnimationFrame(scrollFrame);
       scrollFrame = requestAnimationFrame(() => {
-        const sections = [...resourceModal.querySelectorAll("[data-modal-section]")];
+        const sections = [...resourceModal.querySelectorAll("[data-modal-section]:not([hidden])")];
         const current = sections.reduce((selected, section) => {
           return section.offsetTop <= modalContent.scrollTop + 100 ? section : selected;
         }, sections[0]);

@@ -173,20 +173,20 @@ document.addEventListener("DOMContentLoaded", () => {
       quote: "방문자 후기를 준비하고 있습니다.",
       reviews: []
     },
-    "modern-history": {
+    "beomeosa-oncheonjang": {
       index: "03",
-      title: "부산근현대역사관",
-      heroImage: "assets/images/reports/place-modern-history.png",
-      heroAlt: "부산근현대역사관 외관",
-      type: "역사·문화 / 박물관·근현대유산",
-      summary: "건물 자체의 역사와 전시가 결합되어 근현대 부산을 설명하기 쉬움",
-      location: "중구 대청동",
-      experience: "상설·기획전시 관람 · 근현대사 탐방 · 건축 공간 관람",
-      season: "사계절 / 오전~오후",
+      title: "범어사–온천장 휴양 코스",
+      heroImage: "assets/images/reports/place-beomeosa-oncheonjang.png",
+      heroAlt: "짙은 숲에 둘러싸인 고즈넉한 범어사와 따뜻한 온천 분위기",
+      type: "자연·전통문화 / 온천·휴양",
+      summary: "고즈넉한 산사와 숲길을 거닐고 따뜻한 온천에서 쉬어가는 부산 내륙 휴양 코스",
+      location: "금정구 범어사·동래구 온천장 일대",
+      experience: "숲길 산책 · 사찰 문화 감상 · 온천 체험 · 휴식",
+      season: "사계절 / 오전–오후",
       programs: [
-        ["EXHIBITION", "상설전시 관람", "부산의 근현대 변화와 시민의 삶을 자료와 이야기로 차근차근 살펴봅니다.", "assets/images/reports/watercolor-history-exhibition.png", "부산근현대역사관 상설전시 수채화"],
-        ["HISTORY WALK", "원도심 역사 탐방", "역사관을 시작점으로 대청동과 원도심의 근현대 장소를 연결해 걷습니다.", "assets/images/reports/watercolor-history-walk.png", "부산 원도심 역사 탐방 수채화"],
-        ["ARCHITECTURE", "건축 공간 관찰", "건물에 남아 있는 시대의 흔적과 새로운 공간 활용 방식을 함께 관찰합니다.", "assets/images/reports/watercolor-history-architecture.png", "부산근현대역사관 건축 관찰 수채화"]
+        ["FOREST & TEMPLE", "범어사 숲길 산책", "울창한 숲길을 따라 걸으며 산사의 고요한 풍경과 전통문화를 천천히 감상합니다.", "assets/images/reports/place-beomeosa-oncheonjang.png", "범어사 사찰과 숲길, 온천의 온기가 이어지는 휴양 코스"],
+        ["SLOW MOMENT", "사찰 문화 감상", "전각과 마당을 둘러보며 산사에 축적된 시간과 차분한 분위기를 경험합니다.", null, ""],
+        ["WARM REST", "온천장 휴식", "산책 뒤 온천장으로 이동해 따뜻한 온천을 즐기며 여정을 편안하게 마무리합니다.", null, ""]
       ],
       quote: "방문자 후기를 준비하고 있습니다.",
       reviews: []

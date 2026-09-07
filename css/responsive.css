@@ -133,6 +133,10 @@
     min-height: 280px;
   }
 
+  .archive-card:nth-child(n) { border-right: 0; border-bottom: 1px solid var(--ink); }
+  .archive-card:last-child { border-bottom: 0; }
+  .page-hero { background: linear-gradient(180deg,var(--white) 0 76%,var(--sky) 76%); }
+
   .resource-grid {
     grid-template-columns: 1fr;
   }
@@ -232,6 +236,8 @@
   .project-meta-grid {
     grid-template-columns: 1fr;
   }
+
+  .process-card + .process-card { border-top: 1px solid var(--line); border-left: 0; }
 
   .page-hero {
     padding: 78px 0 66px;

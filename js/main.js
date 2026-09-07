@@ -152,29 +152,21 @@ document.addEventListener("DOMContentLoaded", () => {
         ["ART & BOOK", "전시·서점 큐레이션", "기획 전시와 서점을 함께 둘러보며 공간이 제안하는 문화적 시선을 경험합니다.", "assets/images/reports/watercolor-f1963-art-book.png", "F1963 전시와 서점 수채화"],
         ["SLOW MOMENT", "정원 산책", "카페와 정원을 천천히 걸으며 산업 공간에 더해진 자연의 분위기를 기록합니다.", "assets/images/reports/watercolor-f1963-garden.png", "F1963 정원 산책 수채화"]
       ],
-      quote: "방문자 후기를 준비하고 있습니다.",
-      reviews: []
-    },
-    kkangkkaengi: {
-      index: "02",
-      title: "깡깡이예술마을",
-      heroImage: "assets/images/reports/place-kkangkkaengi.png",
-      heroAlt: "깡깡이예술마을 안내센터 외관",
-      type: "역사·문화 / 산업·마을 관광",
-      summary: "‘깡깡’ 소리와 실제 선박수리 현장이 있어 소리·산업·생활사를 동시에 콘텐츠화 가능",
-      location: "영도구 대평동",
-      experience: "마을 골목 탐방 · 조선소 경관 관람 · 공공예술 감상 · 사진 촬영",
-      season: "봄·가을 / 낮~오후",
-      programs: [
-        ["VILLAGE WALK", "골목 이야기 탐방", "마을 골목을 걸으며 선박수리 산업과 주민들의 생활사를 발견합니다.", "assets/images/reports/watercolor-kkangkkaengi-alley.png", "깡깡이예술마을 골목 탐방 수채화"],
-        ["SOUND SCAPE", "깡깡 소리 기록", "현장에서 들리는 작업 소리를 채집해 마을만의 독특한 리듬을 경험합니다.", "assets/images/reports/watercolor-kkangkkaengi-sound.png", "깡깡이예술마을 선박수리 소리 기록 수채화"],
-        ["PUBLIC ART", "공공예술 산책", "골목 곳곳의 작품과 조선소 경관을 함께 감상하며 사진으로 기록합니다.", "assets/images/reports/watercolor-kkangkkaengi-art.png", "깡깡이예술마을 공공예술 산책 수채화"]
-      ],
-      quote: "방문자 후기를 준비하고 있습니다.",
-      reviews: []
+      cardnewsTitle: "작은 장면을 모으는 중",
+      cardnewsDescription: "공장의 흔적과 전시, 책과 정원으로 이어지는 F1963의 여덟 장면을 소개합니다.",
+      cardnews: [
+        "assets/images/cardnews/f1963/01.png",
+        "assets/images/cardnews/f1963/02.png",
+        "assets/images/cardnews/f1963/03.png",
+        "assets/images/cardnews/f1963/04.png",
+        "assets/images/cardnews/f1963/05.png",
+        "assets/images/cardnews/f1963/06.png",
+        "assets/images/cardnews/f1963/07.png",
+        "assets/images/cardnews/f1963/08.png"
+      ]
     },
     "beomeosa-oncheonjang": {
-      index: "03",
+      index: "02",
       title: "범어사–온천장 휴양 코스",
       heroImage: "assets/images/reports/place-beomeosa-oncheonjang.png",
       heroAlt: "짙은 숲에 둘러싸인 고즈넉한 범어사와 따뜻한 온천 분위기",
@@ -194,11 +186,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "assets/images/cardnews/beomeosa-oncheonjang/3.jpg",
         "assets/images/cardnews/beomeosa-oncheonjang/4.jpg"
       ],
-      quote: "방문자 후기를 준비하고 있습니다.",
-      reviews: []
+      cardnewsTitle: "바다 말고, 조용한 부산",
+      cardnewsDescription: "범어사에서 발견하는 부산 내륙 휴양의 새로운 장면을 네 장의 카드뉴스로 소개합니다."
     },
     gugak: {
-      index: "04",
+      index: "03",
       title: "국립부산국악원 국악체험관",
       heroImage: "assets/images/reports/place-gugak-center.png",
       heroAlt: "국립부산국악원 전경",
@@ -212,11 +204,17 @@ document.addEventListener("DOMContentLoaded", () => {
         ["IMMERSIVE DANCE", "영남춤 실감형 전시", "실감형 영상으로 영남 전통춤의 움직임과 공간감을 생생하게 감상하는 콘텐츠입니다."],
         ["INTERACTIVE MUSIC", "영남민요 인터랙티브 악기 체험", "영남민요를 들으며 전통악기를 직접 조작해보는 참여형 국악 체험입니다."]
       ],
-      quote: "디지털 전시와 음악, 전통춤을 다양한 방식으로 경험할 수 있어 오래 머물게 되는 공간이었어요.",
-      reviews: [
-        ["사용자 1", "무료로 즐길 수 있는 아름다운 전시 공간입니다. 옛 문화와 LP 체험, 사진 촬영까지 시간 가는 줄 모르고 둘러봤어요."],
-        ["사용자 2", "조선시대 작품과 음악을 취향에 맞게 조절해 감상할 수 있어 몰입감이 좋았고 깊은 감동을 받았습니다."],
-        ["사용자 3", "별신굿 참여 안내와 준비가 충분하지 않아 아쉬웠습니다. 참여 대상과 진행 방식을 더 명확히 안내해주면 좋겠어요."]
+      cardnewsTitle: "부산의 소리는 어떤 결을 가졌을까요?",
+      cardnewsDescription: "전통의 소리와 움직임을 오늘의 감각으로 해석한 국립부산국악원의 여덟 장면을 소개합니다.",
+      cardnews: [
+        "assets/images/cardnews/gugak/01.png",
+        "assets/images/cardnews/gugak/02.png",
+        "assets/images/cardnews/gugak/03.png",
+        "assets/images/cardnews/gugak/04.png",
+        "assets/images/cardnews/gugak/05.png",
+        "assets/images/cardnews/gugak/06.png",
+        "assets/images/cardnews/gugak/07.png",
+        "assets/images/cardnews/gugak/08.png"
       ]
     }
   };
@@ -229,12 +227,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryButtons = resourceModal.querySelectorAll("[data-modal-target]");
     const closeButtons = resourceModal.querySelectorAll("[data-modal-close]");
     const programList = resourceModal.querySelector("[data-modal-program-list]");
-    const reviewList = resourceModal.querySelector("[data-modal-review-list]");
-    const reviewSummary = resourceModal.querySelector(".review-summary");
     const placeImage = resourceModal.querySelector("[data-modal-place-image]");
-    const cardnewsButton = resourceModal.querySelector("[data-cardnews-button]");
-    const cardnewsSection = resourceModal.querySelector("[data-cardnews-section]");
     const cardnewsList = resourceModal.querySelector("[data-modal-cardnews-list]");
+    const cardnewsTitle = resourceModal.querySelector("[data-modal-cardnews-title]");
+    const cardnewsDescription = resourceModal.querySelector("[data-modal-cardnews-description]");
     let previouslyFocused = null;
     let scrollFrame = null;
 
@@ -256,32 +252,18 @@ document.addEventListener("DOMContentLoaded", () => {
       `).join("");
     };
 
-    const renderReviews = (reviews) => {
-      reviewSummary.hidden = reviews.length === 0;
-      if (!reviews.length) {
-        reviewList.innerHTML = `<div class="review-pending"><strong>방문자 후기 준비중</strong><p>이 장소의 실제 방문 후기를 정리하고 있습니다.</p></div>`;
-        return;
-      }
-      reviewList.innerHTML = reviews.map((review, index) => `
-        <article class="review-card">
-          <div class="review-card-head">
-            <span class="review-avatar" aria-hidden="true">${index + 1}</span>
-            <div><strong>사용자 ${index + 1}</strong><span aria-label="별점 5점">★★★★★</span></div>
-          </div>
-          <p>${review[1]}</p>
-        </article>
-      `).join("");
-    };
-
-    const renderCardnews = (items = []) => {
+    const renderCardnews = (data) => {
+      const items = data.cardnews || [];
       const hasCardnews = items.length > 0;
-      cardnewsButton.hidden = !hasCardnews;
-      cardnewsSection.hidden = !hasCardnews;
+      cardnewsTitle.textContent = hasCardnews ? (data.cardnewsTitle || `${data.title} 카드뉴스`) : `${data.title} 카드뉴스`;
+      cardnewsDescription.textContent = hasCardnews
+        ? (data.cardnewsDescription || `${data.title}의 새로운 장면을 카드뉴스로 소개합니다.`)
+        : "이 관광 자원의 카드뉴스 콘텐츠를 준비하고 있습니다.";
       cardnewsList.innerHTML = hasCardnews ? items.map((src, index) => `
         <a class="cardnews-item" href="${src}" target="_blank" rel="noopener" aria-label="카드뉴스 ${index + 1}페이지 크게 보기">
-          <img src="${src}" alt="바다 말고, 조용한 부산 카드뉴스 ${index + 1}페이지">
+          <img src="${src}" alt="${data.title} 카드뉴스 ${index + 1}페이지">
           <span>${String(index + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}</span>
-        </a>`).join("") : "";
+        </a>`).join("") : `<div class="cardnews-pending"><strong>카드뉴스 준비중</strong><p>기획과 제작이 완료되면 이곳에 순서대로 업데이트됩니다.</p></div>`;
     };
 
     const setActiveCategory = (targetId) => {
@@ -305,12 +287,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setText("[data-modal-fact-location]", data.location);
       setText("[data-modal-experience]", data.experience);
       setText("[data-modal-season]", data.season);
-      setText("[data-modal-review-quote]", `“${data.quote}”`);
       placeImage.src = data.heroImage;
       placeImage.alt = data.heroAlt;
       renderPrograms(data.programs);
-      renderCardnews(data.cardnews);
-      renderReviews(data.reviews);
+      renderCardnews(data);
 
       resourceModal.hidden = false;
       resourceModal.setAttribute("aria-hidden", "false");

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="관광 자원 조사와 SNS 콘텐츠 기획 자료를 정리한 리포트입니다.">
   <title>Report | Tourism Content Archive</title>
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=10">
   <link rel="stylesheet" href="css/responsive.css">
-  <script src="js/main.js?v=7" defer></script>
+  <script src="js/main.js?v=10" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -42,7 +42,7 @@
             <span class="eyebrow">Tourism Resources</span>
             <h2 class="section-title">선정 관광 자원</h2>
           </div>
-          <p class="lead">부산의 시간과 문화를 서로 다른 방식으로 경험할 수 있는 네 곳을 선정했습니다.</p>
+          <p class="lead">부산의 시간과 문화를 서로 다른 방식으로 경험할 수 있는 세 곳을 선정했습니다.</p>
         </div>
         <div class="resource-grid">
           <article class="resource-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="resource-modal" data-resource="f1963">
@@ -60,24 +60,9 @@
             <span class="resource-cta">상세 리서치 보기 <span aria-hidden="true">↗</span></span>
           </article>
 
-          <article class="resource-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="resource-modal" data-resource="kkangkkaengi">
-            <div class="resource-card-head">
-              <span class="resource-number">02</span>
-              <span class="resource-type">역사·문화 / 산업·마을 관광</span>
-            </div>
-            <h3>깡깡이예술마을</h3>
-            <p class="resource-summary">‘깡깡’ 소리와 실제 선박수리 현장이 있어 <strong>소리·산업·생활사</strong>를 동시에 콘텐츠화 가능</p>
-            <dl class="resource-details">
-              <div><dt>지역</dt><dd>영도구 대평동</dd></div>
-              <div><dt>대표 체험</dt><dd>마을 골목 탐방 · 조선소 경관 관람 · 공공예술 감상 · 사진 촬영</dd></div>
-              <div><dt>추천 방문</dt><dd>봄·가을 <span>/</span> 낮~오후</dd></div>
-            </dl>
-            <span class="resource-cta">상세 리서치 보기 <span aria-hidden="true">↗</span></span>
-          </article>
-
           <article class="resource-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="resource-modal" data-resource="beomeosa-oncheonjang">
             <div class="resource-card-head">
-              <span class="resource-number">03</span>
+              <span class="resource-number">02</span>
               <span class="resource-type">자연·전통문화 / 온천·휴양</span>
             </div>
             <h3>범어사–온천장 휴양 코스</h3>
@@ -92,7 +77,7 @@
 
           <article class="resource-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="resource-modal" data-resource="gugak">
             <div class="resource-card-head">
-              <span class="resource-number">04</span>
+              <span class="resource-number">03</span>
               <span class="resource-type">전통문화·체험 관광 / 음악 체험</span>
             </div>
             <h3>국립부산국악원<br>국악체험관</h3>
@@ -141,13 +126,9 @@
             <span class="category-icon" aria-hidden="true">◇</span>
             <span>체험 프로그램</span>
           </button>
-          <button class="modal-category-button" type="button" data-modal-target="modal-cardnews" data-cardnews-button hidden>
+          <button class="modal-category-button" type="button" data-modal-target="modal-cardnews">
             <span class="category-icon" aria-hidden="true">▤</span>
             <span>카드뉴스</span>
-          </button>
-          <button class="modal-category-button" type="button" data-modal-target="modal-reviews">
-            <span class="category-icon" aria-hidden="true">✦</span>
-            <span>방문자 후기</span>
           </button>
         </nav>
         <div class="modal-sidebar-note">
@@ -195,25 +176,14 @@
           <div class="experience-grid" data-modal-program-list></div>
         </section>
 
-        <section class="modal-section modal-cardnews-section" id="modal-cardnews" data-modal-section data-cardnews-section hidden>
+        <section class="modal-section modal-cardnews-section" id="modal-cardnews" data-modal-section>
           <div class="modal-section-heading">
-            <div><span class="modal-section-label">03 / CARD NEWS</span><h3>바다 말고, 조용한 부산</h3></div>
-            <p>범어사에서 발견하는 부산 내륙 휴양의 새로운 장면을 네 장의 카드뉴스로 소개합니다.</p>
+            <div><span class="modal-section-label">03 / CARD NEWS</span><h3 data-modal-cardnews-title>카드뉴스</h3></div>
+            <p data-modal-cardnews-description>관광 자원의 새로운 장면을 카드뉴스로 소개합니다.</p>
           </div>
           <div class="cardnews-grid" data-modal-cardnews-list></div>
         </section>
 
-        <section class="modal-section" id="modal-reviews" data-modal-section>
-          <div class="modal-section-heading">
-            <div><span class="modal-section-label">03 / VISITOR REVIEW</span><h3>방문자 후기</h3></div>
-            <p>방문자가 남긴 반응에서 공간의 강점과 콘텐츠 포인트를 살펴봅니다.</p>
-          </div>
-          <div class="review-summary">
-            <div><strong>4.8</strong><span>★★★★★</span><small>방문자 만족도</small></div>
-            <p data-modal-review-quote>“공간의 이야기를 직접 걸으며 발견할 수 있어 인상 깊었어요.”</p>
-          </div>
-          <div class="review-grid" data-modal-review-list></div>
-        </section>
       </div>
     </div>
   </div>

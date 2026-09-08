@@ -242,8 +242,8 @@ h3 {
 .locatorial-values strong { font-size: .94rem; }
 .locatorial-values span { color: var(--muted); font-size: .78rem; }
 .locatorial-device { position: relative; z-index: 1; width: min(100%, 510px); margin: -24px auto 0; }
-.locatorial-device::before { content: ""; position: absolute; z-index: -1; inset: 10% -14% 4% 12%; background: rgba(195,238,253,.5); filter: blur(24px); }
-.locatorial-device img { width: 100%; height: auto; mix-blend-mode: multiply; filter: saturate(.86) contrast(1.04) drop-shadow(0 20px 24px rgba(26,26,26,.13)); }
+.locatorial-device::before { content: none; }
+.locatorial-device img { width: 100%; height: auto; clip-path: inset(5.5% 9.5% 5.5% 9.5% round 12% / 7%); mix-blend-mode: normal; filter: saturate(.96) contrast(1.01) drop-shadow(0 20px 24px rgba(26,26,26,.13)); }
 .locatorial-handnote { position: absolute; top: 14%; right: -27%; color: #789baa; font-size: clamp(1rem, 1.4vw, 1.35rem); font-weight: 600; font-style: italic; line-height: 1.55; text-align: center; transform: rotate(-8deg); }
 .locatorial-handnote::after { content: ""; display: block; width: 68px; height: 58px; margin: 8px 0 0 -12px; border-right: 2px solid rgba(120,155,170,.55); border-radius: 0 0 80% 0; transform: rotate(12deg); }
 .locatorial-device figcaption { position: absolute; right: -26px; bottom: 30px; color: #789baa; font-size: .67rem; font-weight: 800; letter-spacing: .16em; line-height: 1.6; text-transform: uppercase; }

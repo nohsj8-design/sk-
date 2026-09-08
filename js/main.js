@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["brand.html", "BRAND"]
   ];
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const resolvePageHref = (href) => href === "locatorial.html" ? "locatorial.html?rev=20260908-2" : href;
+  const resolvePageHref = (href) => href === "locatorial.html" ? "locatorial.html?rev=20260908-3" : href;
   const brandLink = document.querySelector(".brand");
   const navList = document.querySelector(".site-nav ul");
   const footer = document.querySelector(".site-footer");

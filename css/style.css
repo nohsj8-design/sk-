@@ -209,15 +209,18 @@ h3 {
 .locatorial-page .site-nav a:focus-visible { color: var(--ink); background: var(--sky-soft); }
 .locatorial-page .site-nav a.nav-featured,
 .locatorial-page .site-nav a.nav-featured.active { border-color: var(--ink); background: var(--ink); color: var(--white); }
+.locatorial-page .header-inner,
+.locatorial-showcase .container { width: min(calc(100% - 72px), 1520px); }
+.locatorial-page .brand-mark { width: 176px; }
 .locatorial-main { overflow: hidden; background: var(--white); }
-.locatorial-showcase { position: relative; min-height: calc(100vh - 82px); padding: clamp(64px, 8vw, 112px) 0 46px; isolation: isolate; }
-.locatorial-showcase::before { content: ""; position: absolute; z-index: -2; inset: 20% 0 0 36%; background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.68) 28%, rgba(195,238,253,.32) 100%), url("../assets/images/main/busan-past-present-hero.png") center bottom / cover no-repeat; opacity: .58; }
+.locatorial-showcase { position: relative; min-height: calc(100vh - 82px); padding: clamp(62px, 6vw, 92px) 0 34px; isolation: isolate; }
+.locatorial-showcase::before { content: ""; position: absolute; z-index: -2; inset: 17% 0 0 32%; background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.7) 28%, rgba(195,238,253,.3) 100%), url("../assets/images/main/busan-past-present-hero.png") center bottom / cover no-repeat; opacity: .6; }
 .locatorial-showcase::after { content: ""; position: absolute; z-index: -1; inset: auto 0 0; height: 34%; background: linear-gradient(180deg, rgba(255,255,255,0), var(--white)); }
-.locatorial-showcase-grid { display: grid; grid-template-columns: minmax(0, 1.34fr) minmax(360px, .66fr); align-items: center; gap: clamp(34px, 4vw, 72px); }
+.locatorial-showcase-grid { display: grid; grid-template-columns: minmax(0, 1.32fr) minmax(440px, .68fr); align-items: center; gap: clamp(30px, 3.4vw, 62px); }
 .locatorial-message { position: relative; z-index: 2; }
 .locatorial-kicker { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: .78rem; font-weight: 850; letter-spacing: .2em; text-transform: uppercase; }
 .locatorial-kicker::before { content: ""; width: 34px; height: 2px; background: var(--ink); }
-.locatorial-message h1 { max-width: 850px; margin: 40px 0 22px; font-size: clamp(3.2rem, 6.15vw, 6.6rem); line-height: 1.08; letter-spacing: -.06em; }
+.locatorial-message h1 { max-width: 940px; margin: 42px 0 24px; font-size: clamp(3.2rem, 5.45vw, 5.55rem); line-height: 1.09; letter-spacing: -.06em; }
 .locatorial-message h1 em { color: #78aabc; font-style: normal; }
 .locatorial-subtitle { margin: 0 0 20px; color: var(--ink); font-size: clamp(1.12rem, 1.7vw, 1.65rem); font-weight: 700; }
 .locatorial-description { max-width: 650px; margin: 0; color: var(--muted); font-size: 1.04rem; line-height: 1.85; }
@@ -229,7 +232,8 @@ h3 {
 .locatorial-primary:focus-visible { background: #324b54; outline: none; transform: translateY(-2px); }
 .locatorial-primary:hover i,
 .locatorial-primary:focus-visible i { transform: translateX(4px); }
-.locatorial-note { color: #668d9b; font-size: .88rem; font-weight: 750; text-decoration: underline; text-underline-offset: 5px; }
+.locatorial-note { display: inline-flex; align-items: center; gap: 8px; color: #668d9b; font-size: .88rem; font-weight: 750; text-decoration: underline; text-underline-offset: 5px; }
+.locatorial-note i { display: inline-grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: #78aabc; color: var(--white); font-size: .68rem; font-style: normal; text-decoration: none; }
 .locatorial-values { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 760px; margin: 54px 0 0; padding: 0; list-style: none; }
 .locatorial-values li { display: grid; min-height: 112px; padding: 0 28px; place-items: center; border-right: 1px solid var(--line); text-align: center; }
 .locatorial-values li:first-child { padding-left: 0; }
@@ -237,9 +241,11 @@ h3 {
 .locatorial-values svg { width: 38px; height: 38px; margin-bottom: 10px; fill: none; stroke: #78aabc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5; }
 .locatorial-values strong { font-size: .94rem; }
 .locatorial-values span { color: var(--muted); font-size: .78rem; }
-.locatorial-device { position: relative; z-index: 1; width: min(100%, 470px); margin: -18px auto 0; }
+.locatorial-device { position: relative; z-index: 1; width: min(100%, 510px); margin: -24px auto 0; }
 .locatorial-device::before { content: ""; position: absolute; z-index: -1; inset: 10% -14% 4% 12%; background: rgba(195,238,253,.5); filter: blur(24px); }
 .locatorial-device img { width: 100%; height: auto; mix-blend-mode: multiply; filter: saturate(.86) contrast(1.04) drop-shadow(0 20px 24px rgba(26,26,26,.13)); }
+.locatorial-handnote { position: absolute; top: 14%; right: -27%; color: #789baa; font-size: clamp(1rem, 1.4vw, 1.35rem); font-weight: 600; font-style: italic; line-height: 1.55; text-align: center; transform: rotate(-8deg); }
+.locatorial-handnote::after { content: ""; display: block; width: 68px; height: 58px; margin: 8px 0 0 -12px; border-right: 2px solid rgba(120,155,170,.55); border-radius: 0 0 80% 0; transform: rotate(12deg); }
 .locatorial-device figcaption { position: absolute; right: -26px; bottom: 30px; color: #789baa; font-size: .67rem; font-weight: 800; letter-spacing: .16em; line-height: 1.6; text-transform: uppercase; }
 .brand-intro { overflow: hidden; background: var(--sky); color: var(--ink); }
 .brand-intro-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 72px; }

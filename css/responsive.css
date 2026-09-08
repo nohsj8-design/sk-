@@ -54,6 +54,15 @@
 }
 
 @media (max-width: 800px) {
+  .locatorial-page .header-inner,
+  .locatorial-showcase .container {
+    width: min(calc(100% - 36px), var(--max-width));
+  }
+
+  .locatorial-handnote {
+    display: none;
+  }
+
   .container {
     width: min(calc(100% - 36px), var(--max-width));
   }

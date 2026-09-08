@@ -21,8 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (navList) {
     navList.innerHTML = pageMap.map(([href, label]) => {
-      const active = href === currentPage ? ' class="active" aria-current="page"' : "";
-      return `<li><a${active} href="${href}">${label}</a></li>`;
+      const isActive = href === currentPage;
+      const className = `${isActive ? "active" : ""}${href === "locatorial.html" ? " nav-featured" : ""}`.trim();
+      const attributes = `${className ? ` class="${className}"` : ""}${isActive ? ' aria-current="page"' : ""}`;
+      return `<li><a${attributes} href="${href}">${label}</a></li>`;
     }).join("");
   }
 

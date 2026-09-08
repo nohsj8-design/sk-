@@ -158,6 +158,20 @@ h3 {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.site-nav a.nav-featured {
+  border: 1px solid var(--sky);
+  background: var(--sky);
+  color: var(--ink);
+}
+
+.site-nav a.nav-featured:hover,
+.site-nav a.nav-featured:focus-visible,
+.site-nav a.nav-featured.active {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--ink);
+}
+
 /* 771 LAYERS brand system */
 .menu-toggle { background: var(--sky); }
 .menu-toggle span { background: var(--ink); }
@@ -187,74 +201,57 @@ h3 {
 .page-switcher small { color: var(--muted); font-size: .68rem; letter-spacing: .1em; }
 .page-home-link { align-items: center !important; color: var(--muted); text-align: center !important; }
 
-/* LOC.TORIAL embedded app */
-.locatorial-main {
-  padding: 38px 0 64px;
-  background: var(--white);
-}
-
-.locatorial-intro {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-  width: min(calc(100% - 48px), var(--max-width));
-  margin: 0 auto 24px;
-}
-
-.locatorial-intro h1 {
-  margin: 8px 0 6px;
-  color: var(--ink);
-  font-size: clamp(2.5rem, 6vw, 5.4rem);
-  line-height: .92;
-  letter-spacing: -.045em;
-}
-
-.locatorial-intro p { margin: 0; color: var(--muted); font-size: 1rem; }
+/* LOC.TORIAL */
+.locatorial-main { background: var(--white); }
+.locatorial-hero { padding: clamp(72px, 10vw, 144px) 0; overflow: hidden; }
+.locatorial-hero-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(340px, .68fr); align-items: center; gap: clamp(48px, 8vw, 120px); }
+.locatorial-copy h1 { max-width: 830px; margin: 22px 0 30px; color: var(--ink); font-size: clamp(3rem, 6.4vw, 6.9rem); line-height: .98; letter-spacing: -.055em; }
+.locatorial-copy h1 span { color: #6a98aa; }
+.locatorial-copy > p { max-width: 680px; margin: 0; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.85; }
+.locatorial-copy > p strong { color: var(--ink); }
 
 .locatorial-open {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  flex: 0 0 auto;
-  padding: 13px 18px;
+  gap: 18px;
+  width: fit-content;
+  margin-top: 38px;
+  padding: 8px 8px 8px 22px;
   border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--sky);
   color: var(--ink);
-  font-size: .86rem;
+  font-size: .9rem;
   font-weight: 800;
-  transition: background-color .2s ease, color .2s ease;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
 
 .locatorial-open:hover,
-.locatorial-open:focus-visible { background: var(--ink); color: var(--white); outline: none; }
-
-.locatorial-workspace {
-  overflow: hidden;
-  width: min(calc(100% - 48px), 1500px);
-  margin: 0 auto;
-  border: 1px solid var(--ink);
-  background: var(--white);
-  box-shadow: 12px 12px 0 var(--sky);
-}
-
-.locatorial-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 42px;
-  padding: 0 16px;
-  border-bottom: 1px solid var(--ink);
-  color: var(--muted);
-  background: var(--sky-soft);
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: .08em;
-}
-
-.locatorial-status { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
-.locatorial-status i { width: 8px; height: 8px; border-radius: 50%; background: #32a879; }
-.locatorial-frame { display: block; width: 100%; height: min(76vh, 900px); min-height: 620px; border: 0; background: var(--white); }
-.locatorial-fallback { margin: 0; padding: 24px; }
+.locatorial-open:focus-visible { background: var(--white); color: var(--ink); outline: none; transform: translateY(-3px); }
+.locatorial-open i { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 1.05rem; font-style: normal; transition: transform .2s ease; }
+.locatorial-open:hover i,
+.locatorial-open:focus-visible i { transform: rotate(45deg); }
+.locatorial-edition { position: relative; min-height: 510px; padding: 34px; border: 1px solid var(--ink); background: var(--sky); box-shadow: 18px 18px 0 var(--ink); }
+.locatorial-edition::after { content: ""; position: absolute; inset: 42% -45px auto 38%; height: 1px; background: var(--ink); transform: rotate(-28deg); transform-origin: left; }
+.edition-index { display: block; padding-bottom: 18px; border-bottom: 1px solid rgba(26,26,26,.45); font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
+.locatorial-edition > strong { display: block; margin-top: 50px; font-size: clamp(3.3rem, 6vw, 6.5rem); line-height: .78; letter-spacing: -.06em; }
+.edition-axis { display: flex; gap: 10px; margin-top: 54px; }
+.edition-axis span { padding: 7px 10px; border: 1px solid rgba(26,26,26,.38); font-size: .66rem; font-weight: 800; letter-spacing: .08em; }
+.locatorial-edition p { position: absolute; right: 34px; bottom: 30px; margin: 0; text-align: right; font-weight: 800; line-height: 1.45; }
+.locatorial-about { padding: clamp(72px, 9vw, 124px) 0; border-top: 1px solid var(--line); background: var(--sky-soft); }
+.locatorial-section-head { display: grid; grid-template-columns: 80px 1fr; align-items: start; gap: 22px; margin-bottom: 54px; }
+.locatorial-section-head .section-number { padding-top: 4px; color: var(--muted); font-size: .8rem; font-weight: 800; }
+.locatorial-section-head h2 { margin: 8px 0 0; font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.04em; }
+.locatorial-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; border-top: 1px solid var(--ink); list-style: none; }
+.locatorial-steps li { min-height: 260px; padding: 28px 30px; border-right: 1px solid var(--ink); }
+.locatorial-steps li:last-child { border-right: 0; }
+.locatorial-steps li > span { color: #638b99; font-size: .75rem; font-weight: 800; }
+.locatorial-steps h3 { margin: 46px 0 14px; font-size: 1.55rem; }
+.locatorial-steps p { margin: 0; color: var(--muted); line-height: 1.75; }
+.locatorial-cta { padding: clamp(68px, 8vw, 108px) 0; background: var(--sky); }
+.locatorial-cta-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.locatorial-cta h2 { margin: 12px 0 0; font-size: clamp(2.4rem, 5vw, 5.2rem); line-height: 1.05; letter-spacing: -.045em; }
+.locatorial-open-dark { flex: 0 0 auto; margin: 0; }
 .brand-intro { overflow: hidden; background: var(--sky); color: var(--ink); }
 .brand-intro-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 72px; }
 .brand-intro-logo { padding: 46px; border: 1px solid rgba(26,26,26,.12); border-radius: var(--radius-lg); background: var(--ink); }

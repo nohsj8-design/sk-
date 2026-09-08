@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["brand.html", "BRAND"]
   ];
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const resolvePageHref = (href) => href === "locatorial.html" ? "locatorial.html?rev=20260908-2" : href;
   const brandLink = document.querySelector(".brand");
   const navList = document.querySelector(".site-nav ul");
   const footer = document.querySelector(".site-footer");
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const isActive = href === currentPage;
       const className = `${isActive ? "active" : ""}${href === "locatorial.html" ? " nav-featured" : ""}`.trim();
       const attributes = `${className ? ` class="${className}"` : ""}${isActive ? ' aria-current="page"' : ""}`;
-      return `<li><a${attributes} href="${href}">${label}</a></li>`;
+      return `<li><a${attributes} href="${resolvePageHref(href)}">${label}</a></li>`;
     }).join("");
   }
 
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="social-link" href="https://www.youtube.com/@BusanHuyangJoa" target="_blank" rel="noopener noreferrer" aria-label="부산 휴양좋아 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
           </div>
         </div>
-        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav>`;
+        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${resolvePageHref(href)}">${label}</a>`).join("")}</nav>`;
     }
     if (footerBottom) footerBottom.firstElementChild.textContent = "771 LAYERS · Busan Tourism Content Archive";
   }
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const switcher = document.createElement("nav");
       switcher.className = "page-switcher";
       switcher.setAttribute("aria-label", "페이지 이동");
-      switcher.innerHTML = `<div class="container page-switcher-inner"><a href="${previous[0]}"><small>PREVIOUS</small><span>← ${previous[1]}</span></a><a class="page-home-link" href="index.html"><small>ARCHIVE</small><span>HOME</span></a><a href="${next[0]}"><small>NEXT</small><span>${next[1]} →</span></a></div>`;
+      switcher.innerHTML = `<div class="container page-switcher-inner"><a href="${resolvePageHref(previous[0])}"><small>PREVIOUS</small><span>← ${previous[1]}</span></a><a class="page-home-link" href="index.html"><small>ARCHIVE</small><span>HOME</span></a><a href="${resolvePageHref(next[0])}"><small>NEXT</small><span>${next[1]} →</span></a></div>`;
       main.insertAdjacentElement("afterend", switcher);
     }
   }

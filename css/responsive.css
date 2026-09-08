@@ -110,6 +110,11 @@
     width: 100%;
   }
 
+  .locatorial-main { padding: 28px 0 44px; }
+  .locatorial-intro { align-items: flex-start; width: min(calc(100% - 36px), var(--max-width)); }
+  .locatorial-workspace { width: min(calc(100% - 36px), 1500px); box-shadow: 7px 7px 0 var(--sky); }
+  .locatorial-frame { height: 74vh; min-height: 560px; }
+
   .site-nav a {
     padding: 15px 20px;
     font-size: 1.1rem;
@@ -268,6 +273,13 @@
   .brand-value-grid article { border-right: 0; }
   .type-layout { gap: 50px; }
   .type-specimen { padding: 32px 0 0; border-top: 1px solid rgba(255,255,255,.2); border-left: 0; }
+}
+
+@media (max-width: 560px) {
+  .locatorial-intro { flex-direction: column; gap: 20px; }
+  .locatorial-open { width: 100%; justify-content: center; }
+  .locatorial-toolbar span:last-child { display: none; }
+  .locatorial-frame { min-height: 520px; }
 }
 
 @media (max-width: 560px) {

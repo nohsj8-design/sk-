@@ -186,6 +186,75 @@ h3 {
 .page-switcher a:hover { background: var(--sky); }
 .page-switcher small { color: var(--muted); font-size: .68rem; letter-spacing: .1em; }
 .page-home-link { align-items: center !important; color: var(--muted); text-align: center !important; }
+
+/* LOC.TORIAL embedded app */
+.locatorial-main {
+  padding: 38px 0 64px;
+  background: var(--white);
+}
+
+.locatorial-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  width: min(calc(100% - 48px), var(--max-width));
+  margin: 0 auto 24px;
+}
+
+.locatorial-intro h1 {
+  margin: 8px 0 6px;
+  color: var(--ink);
+  font-size: clamp(2.5rem, 6vw, 5.4rem);
+  line-height: .92;
+  letter-spacing: -.045em;
+}
+
+.locatorial-intro p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+.locatorial-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  padding: 13px 18px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: .86rem;
+  font-weight: 800;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.locatorial-open:hover,
+.locatorial-open:focus-visible { background: var(--ink); color: var(--white); outline: none; }
+
+.locatorial-workspace {
+  overflow: hidden;
+  width: min(calc(100% - 48px), 1500px);
+  margin: 0 auto;
+  border: 1px solid var(--ink);
+  background: var(--white);
+  box-shadow: 12px 12px 0 var(--sky);
+}
+
+.locatorial-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--ink);
+  color: var(--muted);
+  background: var(--sky-soft);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.locatorial-status { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+.locatorial-status i { width: 8px; height: 8px; border-radius: 50%; background: #32a879; }
+.locatorial-frame { display: block; width: 100%; height: min(76vh, 900px); min-height: 620px; border: 0; background: var(--white); }
+.locatorial-fallback { margin: 0; padding: 24px; }
 .brand-intro { overflow: hidden; background: var(--sky); color: var(--ink); }
 .brand-intro-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 72px; }
 .brand-intro-logo { padding: 46px; border: 1px solid rgba(26,26,26,.12); border-radius: var(--radius-lg); background: var(--ink); }

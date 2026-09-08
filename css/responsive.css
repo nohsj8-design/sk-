@@ -116,7 +116,6 @@
   .locatorial-steps li { min-height: 0; border-right: 0; border-bottom: 1px solid var(--ink); }
   .locatorial-steps li:last-child { border-bottom: 0; }
   .locatorial-steps h3 { margin-top: 26px; }
-  .locatorial-cta-inner { align-items: flex-start; flex-direction: column; }
 
   .site-nav a {
     padding: 15px 20px;
@@ -281,9 +280,7 @@
 @media (max-width: 560px) {
   .locatorial-open { width: 100%; justify-content: center; }
   .locatorial-copy h1 br { display: none; }
-  .locatorial-preview-stage { padding: 42px 18px 0; box-shadow: 9px 9px 0 var(--sky); }
-  .locatorial-preview figcaption { flex-direction: column; gap: 7px; }
-  .locatorial-preview figcaption span { max-width: none; text-align: left; }
+  .locatorial-preview { width: min(92%, 460px); }
   .locatorial-section-head { grid-template-columns: 1fr; gap: 8px; }
 }
 

@@ -110,12 +110,15 @@
     width: 100%;
   }
 
-  .locatorial-hero-grid { grid-template-columns: 1fr; }
-  .locatorial-preview { width: min(100%, 560px); }
-  .locatorial-steps { grid-template-columns: 1fr; }
-  .locatorial-steps li { min-height: 0; border-right: 0; border-bottom: 1px solid var(--ink); }
-  .locatorial-steps li:last-child { border-bottom: 0; }
-  .locatorial-steps h3 { margin-top: 26px; }
+  .locatorial-page .site-nav a { color: rgba(255,255,255,.78); }
+  .locatorial-page .site-nav a.nav-featured,
+  .locatorial-page .site-nav a.nav-featured.active { border-color: var(--sky); background: var(--sky); color: var(--ink); }
+  .locatorial-showcase { min-height: auto; padding-top: 58px; }
+  .locatorial-showcase::before { inset: 42% 0 0; }
+  .locatorial-showcase-grid { grid-template-columns: 1fr; }
+  .locatorial-message h1 { max-width: 720px; }
+  .locatorial-device { width: min(82%, 480px); margin-top: 20px; }
+  .locatorial-device figcaption { right: -10%; }
 
   .site-nav a {
     padding: 15px 20px;
@@ -278,10 +281,19 @@
 }
 
 @media (max-width: 560px) {
-  .locatorial-open { width: 100%; justify-content: center; }
-  .locatorial-copy h1 br { display: none; }
-  .locatorial-preview { width: min(92%, 460px); }
-  .locatorial-section-head { grid-template-columns: 1fr; gap: 8px; }
+  .locatorial-message h1 { margin-top: 28px; font-size: clamp(2.65rem, 13vw, 4rem); }
+  .locatorial-message h1 br { display: none; }
+  .locatorial-subtitle { font-size: 1rem; }
+  .locatorial-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .locatorial-primary { width: 100%; }
+  .locatorial-values { grid-template-columns: 1fr; margin-top: 42px; border-top: 1px solid var(--line); }
+  .locatorial-values li,
+  .locatorial-values li:first-child,
+  .locatorial-values li:last-child { grid-template-columns: 42px 1fr; min-height: 0; padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); place-items: start; text-align: left; }
+  .locatorial-values svg { grid-row: span 2; margin: 0; }
+  .locatorial-values span { text-align: left; }
+  .locatorial-device { width: min(100%, 410px); }
+  .locatorial-device figcaption { display: none; }
 }
 
 @media (max-width: 560px) {

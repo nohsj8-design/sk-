@@ -231,13 +231,14 @@ h3 {
 .locatorial-open i { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 1.05rem; font-style: normal; transition: transform .2s ease; }
 .locatorial-open:hover i,
 .locatorial-open:focus-visible i { transform: rotate(45deg); }
-.locatorial-edition { position: relative; min-height: 510px; padding: 34px; border: 1px solid var(--ink); background: var(--sky); box-shadow: 18px 18px 0 var(--ink); }
-.locatorial-edition::after { content: ""; position: absolute; inset: 42% -45px auto 38%; height: 1px; background: var(--ink); transform: rotate(-28deg); transform-origin: left; }
-.edition-index { display: block; padding-bottom: 18px; border-bottom: 1px solid rgba(26,26,26,.45); font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
-.locatorial-edition > strong { display: block; margin-top: 50px; font-size: clamp(3.3rem, 6vw, 6.5rem); line-height: .78; letter-spacing: -.06em; }
-.edition-axis { display: flex; gap: 10px; margin-top: 54px; }
-.edition-axis span { padding: 7px 10px; border: 1px solid rgba(26,26,26,.38); font-size: .66rem; font-weight: 800; letter-spacing: .08em; }
-.locatorial-edition p { position: absolute; right: 34px; bottom: 30px; margin: 0; text-align: right; font-weight: 800; line-height: 1.45; }
+.locatorial-preview { width: min(100%, 430px); margin: 0 auto; }
+.locatorial-preview-stage { position: relative; overflow: hidden; padding: 48px 34px 0; border: 1px solid var(--ink); background: var(--sky-soft); box-shadow: 16px 16px 0 var(--sky); }
+.locatorial-preview-stage::before { content: ""; position: absolute; inset: 18px 18px auto auto; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); box-shadow: -18px 0 0 #7daebe; }
+.preview-label { position: absolute; top: 17px; left: 20px; color: var(--muted); font-size: .67rem; font-weight: 800; letter-spacing: .1em; }
+.locatorial-preview img { display: block; width: 100%; height: auto; filter: saturate(.86) contrast(1.02); }
+.locatorial-preview figcaption { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0 0; border-top: 1px solid transparent; }
+.locatorial-preview figcaption strong { font-size: .95rem; }
+.locatorial-preview figcaption span { max-width: 260px; color: var(--muted); font-size: .82rem; line-height: 1.55; text-align: right; }
 .locatorial-about { padding: clamp(72px, 9vw, 124px) 0; border-top: 1px solid var(--line); background: var(--sky-soft); }
 .locatorial-section-head { display: grid; grid-template-columns: 80px 1fr; align-items: start; gap: 22px; margin-bottom: 54px; }
 .locatorial-section-head .section-number { padding-top: 4px; color: var(--muted); font-size: .8rem; font-weight: 800; }

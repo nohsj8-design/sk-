@@ -54,6 +54,25 @@
 }
 
 @media (max-width: 800px) {
+  .lt-shell { width: min(calc(100% - 36px), 680px); }
+  .lt-hero { min-height: auto; padding-top: 62px; }
+  .lt-hero-inner { grid-template-columns: 1fr; }
+  .lt-hero-copy { padding-bottom: 40px; text-align: center; }
+  .lt-hero-copy p br { display: none; }
+  .lt-hero-visual { width: min(100%,460px); height: 440px; margin-inline: auto; }
+  .lt-hero-visual img { right: 50%; width: 330px; transform: translateX(50%) rotate(3deg); }
+  .lt-two-column { grid-template-columns: 1fr; gap: 45px; }
+  .lt-section { padding: 78px 0; }
+  .lt-intro { text-align: center; }
+  .lt-intro p { margin-inline: auto; }
+  .lt-editorial-card { width: min(100%,480px); margin-inline: auto; text-align: left; }
+  .lt-card-grid, .lt-personas, .lt-screen-grid { grid-template-columns: 1fr; }
+  .lt-card-grid article { min-height: 0; }
+  .lt-personas { max-width: 520px; margin-inline: auto; }
+  .lt-personas article { min-height: 115px; }
+  .lt-how-grid { max-width: 540px; margin-inline: auto; }
+  .lt-screen-grid { max-width: 440px; margin-inline: auto; }
+  .lt-screen-grid article > div { height: 510px; }
   .locatorial-page .header-inner,
   .locatorial-showcase .container {
     width: min(calc(100% - 36px), var(--max-width));
@@ -290,6 +309,27 @@
 }
 
 @media (max-width: 560px) {
+  .lt-shell { width: min(calc(100% - 28px), 500px); }
+  .lt-hero { padding-top: 50px; }
+  .lt-hero h1 { font-size: clamp(2rem,10vw,3rem); }
+  .lt-hero-visual { height: 390px; }
+  .lt-hero-visual img { bottom: -92px; width: 285px; }
+  .lt-hero-visual figcaption { right: 2px; bottom: 32px; font-size: .82rem; }
+  .lt-section { padding: 62px 0; }
+  .lt-editorial-card { min-height: 370px; padding: 28px; }
+  .lt-editorial-card strong { left: 28px; bottom: 34px; font-size: 1.2rem; }
+  .lt-card-grid { gap: 12px; margin-top: 36px; }
+  .lt-card-grid article { padding: 24px; }
+  .lt-shift { gap: 10px; margin-top: 38px; }
+  .lt-shift > div { width: 126px; height: 126px; }
+  .lt-shift > b { font-size: 1.6rem; }
+  .lt-shift strong { font-size: 1.2rem; }
+  .lt-centered-copy br { display: none; }
+  .lt-phone-crop { height: 320px; }
+  .lt-how li { grid-template-columns: 34px 1fr; gap: 12px; }
+  .lt-screen-grid article > div { height: 420px; }
+  .lt-value li { padding: 15px; }
+  .lt-cta { padding: 74px 0; }
   .locatorial-message h1 { margin-top: 28px; font-size: clamp(2.65rem, 13vw, 4rem); }
   .locatorial-message h1 br { display: none; }
   .locatorial-subtitle { font-size: 1rem; }

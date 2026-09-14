@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["contents.html", "CONTENTS"],
     ["sns.html", "SNS"],
     ["final-project.html", "FINAL PROJECT"],
+    ["SOUND771_Portfolio.html", "SOUND 771"],
     ["locatorial.html", "LOC.TORIAL"],
     ["brand.html", "BRAND"]
   ];
@@ -22,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navList) {
     navList.innerHTML = pageMap.map(([href, label]) => {
       const isActive = href === currentPage;
-      const className = `${isActive ? "active" : ""}${href === "locatorial.html" ? " nav-featured" : ""}`.trim();
+      const isFeatured = href === "SOUND771_Portfolio.html" || href === "locatorial.html";
+      const className = `${isActive ? "active" : ""}${isFeatured ? " nav-featured" : ""}`.trim();
       const attributes = `${className ? ` class="${className}"` : ""}${isActive ? ' aria-current="page"' : ""}`;
       return `<li><a${attributes} href="${href}">${label}</a></li>`;
     }).join("");

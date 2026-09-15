@@ -2102,6 +2102,34 @@ h3 {
 .cardnews-pending p { margin: 0; color: var(--muted); font-size: .82rem; }
 .modal-category-button[hidden], .modal-section[hidden] { display: none; }
 .archive-card, .resource-card, .content-card, .metric-card, .chart-card { box-shadow: none; }
+
+/* Official social channels */
+.sns-page .page-hero{background:linear-gradient(145deg,#eef8ff 0%,#fff 68%)}
+.sns-page .page-title{max-width:980px}
+.channel-section .section-head{align-items:end}
+.channel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--color-text)}
+.channel-grid-music{grid-template-columns:1fr}
+.channel-card{position:relative;display:grid;grid-template-columns:52px 110px minmax(110px,170px) 1fr 54px;align-items:center;gap:24px;min-height:280px;padding:34px 28px;border-bottom:1px solid var(--color-border);color:var(--color-text);text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.channel-grid-travel .channel-card:first-child{border-right:1px solid var(--color-border)}
+.channel-card:hover{background:#0878ff;color:#fff;text-decoration:none}
+.channel-card:focus-visible{outline:3px solid #0878ff;outline-offset:5px}
+.channel-number,.channel-platform{align-self:start;font:12px/1.5 monospace;letter-spacing:.06em;text-transform:uppercase}
+.channel-platform{font-weight:700}
+.channel-avatar{display:grid;width:clamp(100px,12vw,164px);aspect-ratio:1;place-items:center;border:1px solid currentColor;border-radius:50%;overflow:hidden}
+.channel-avatar-wave{background:#dff3ff;color:#0878ff;font:500 clamp(50px,6vw,86px)/1 Georgia,serif}
+.channel-youtube .channel-avatar-wave{background:#ffefef;color:#f1142f;font:700 clamp(28px,3vw,42px)/1 Arial,sans-serif}
+.channel-avatar-logo{border-radius:0;background:#0c1018;border-color:#343d4d}
+.channel-avatar-logo img{display:block;width:92%;height:auto}
+.channel-copy{display:flex;min-width:0;flex-direction:column;gap:13px}
+.channel-copy strong{font-size:clamp(25px,3vw,43px);line-height:1.05;letter-spacing:-.055em;overflow-wrap:anywhere}
+.channel-copy small{max-width:440px;font-size:15px;line-height:1.7;color:var(--color-muted)}
+.channel-card:hover .channel-copy small{color:#eaf4ff}
+.channel-arrow{display:grid;width:48px;height:48px;place-items:center;justify-self:end;border:1px solid currentColor;border-radius:50%;font-size:24px}
+.channel-card-music{grid-template-columns:52px 110px minmax(130px,190px) 1fr 54px;background:#0c1018;color:#f2f1ed;border-bottom-color:#343d4d}
+.channel-card-music .channel-copy small{color:#adb5c3}
+.channel-card-music:hover{background:#171d29}
+@media(max-width:1000px){.channel-grid{grid-template-columns:1fr}.channel-grid-travel .channel-card:first-child{border-right:0}.channel-card{grid-template-columns:42px 90px minmax(100px,145px) 1fr 48px}}
+@media(max-width:700px){.channel-section .section-head{align-items:start}.channel-card,.channel-card-music{grid-template-columns:38px 1fr 44px;gap:16px;min-height:0;padding:26px 18px}.channel-platform{grid-column:2}.channel-avatar{grid-column:1/4;grid-row:2;width:112px;margin:10px 0}.channel-copy{grid-column:1/4;grid-row:3}.channel-arrow{grid-column:3;grid-row:1;width:40px;height:40px}.channel-copy strong{font-size:29px}.channel-copy small{font-size:14px}}
 .archive-card:hover, .resource-card:hover, .content-card:hover { box-shadow: var(--shadow); }
 
 /* Unified blue editorial system */

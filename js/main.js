@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ["locatorial.html", "LOC.TORIAL"],
     ["brand.html", "BRAND"]
   ];
+  const primaryNavigation = [
+    ["index.html#projects", "프로젝트", "projects"],
+    ["index.html#archive", "아카이브", "archive"],
+    ["sns.html", "채널", "channels"],
+    ["index.html#about", "소개", "about"]
+  ];
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
   const brandLink = document.querySelector(".brand");
   const navList = document.querySelector(".site-nav ul");
@@ -21,14 +27,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (navList) {
-    navList.innerHTML = pageMap.map(([href, label]) => {
-      const isActive = href === currentPage;
-      const isFeatured = href === "SOUND771_Portfolio.html" || href === "locatorial.html";
-      const className = `${isActive ? "active" : ""}${isFeatured ? " nav-featured" : ""}`.trim();
-      const attributes = `${className ? ` class="${className}"` : ""}${isActive ? ' aria-current="page"' : ""}`;
-      return `<li><a${attributes} href="${href}">${label}</a></li>`;
+    navList.innerHTML = primaryNavigation.map(([href, label, key]) => {
+      const isActive = (key === "channels" && currentPage === "sns.html") ||
+        (currentPage === "index.html" && window.location.hash === `#${key}`);
+      const attributes = `${isActive ? ' class="active"' : ""}${isActive ? ' aria-current="location"' : ""}`;
+      return `<li><a${attributes} data-nav-key="${key}" href="${href}">${label}</a></li>`;
     }).join("");
   }
+
+  const syncSectionNavigation = () => {
+    if (currentPage !== "index.html") return;
+    const currentKey = window.location.hash.replace("#", "");
+    document.querySelectorAll(".site-nav [data-nav-key]").forEach((link) => {
+      const active = link.dataset.navKey === currentKey;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+  window.addEventListener("hashchange", syncSectionNavigation);
 
   if (footer) {
     const footerMain = footer.querySelector(".footer-main");
@@ -43,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="social-link" href="https://www.youtube.com/@BusanHuyangJoa" target="_blank" rel="noopener noreferrer" aria-label="부산 휴양좋아 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
           </div>
         </div>
-        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav>`;
+        <nav class="footer-nav" aria-label="푸터 메뉴">${primaryNavigation.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav>`;
     }
     if (footerBottom) footerBottom.firstElementChild.textContent = "771 LAYERS · Busan Tourism Content Archive";
   }

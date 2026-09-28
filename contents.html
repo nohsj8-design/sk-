@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="제작한 카드뉴스와 영상 콘텐츠를 모아 보는 콘텐츠 갤러리입니다.">
+  <meta name="description" content="제작한 포스터, 카드뉴스, 영상과 캠페인 콘텐츠를 모아 보는 콘텐츠 갤러리입니다.">
   <title>Contents | Tourism Content Archive</title>
-  <link rel="stylesheet" href="css/style.css?v=23">
+  <link rel="stylesheet" href="css/style.css?v=28">
   <link rel="stylesheet" href="css/responsive.css?v=7">
-  <script src="js/main.js?v=14" defer></script>
+  <script src="js/main.js?v=16" defer></script>
 </head>
-<body>
+<body class="contents-page">
   <a class="skip-link" href="#main-content">본문 바로가기</a>
   <header class="site-header">
     <div class="container header-inner">
@@ -33,7 +33,7 @@
       <div class="container">
         <div class="page-index"><span></span>02 / CREATION</div>
         <h1 class="page-title">Contents</h1>
-        <p class="lead">리서치와 기획을 바탕으로 완성한 카드뉴스, 영상, 캠페인 콘텐츠를 유형별로 아카이빙합니다.</p>
+        <p class="lead">리서치와 기획을 바탕으로 완성한 포스터, 카드뉴스, 영상, 캠페인을 유형별로 아카이빙합니다.</p>
       </div>
     </section>
 
@@ -41,51 +41,37 @@
       <div class="container">
         <div class="section-head">
           <div><span class="eyebrow">Content Gallery</span><h2 class="section-title">제작 콘텐츠</h2></div>
-          <p class="lead">필터를 선택해 원하는 형식의 콘텐츠만 확인할 수 있습니다.</p>
+          <p class="lead">실제 제작이 완료된 결과물만 공개합니다.</p>
         </div>
         <div class="toolbar">
           <div class="filter-group" aria-label="콘텐츠 유형 필터">
-            <button class="filter-button active" type="button" data-filter="all">전체</button>
+            <button class="filter-button active" type="button" data-filter="poster">포스터</button>
             <button class="filter-button" type="button" data-filter="cardnews">카드뉴스</button>
             <button class="filter-button" type="button" data-filter="video">영상</button>
             <button class="filter-button" type="button" data-filter="campaign">캠페인</button>
           </div>
-          <span class="item-count"><span data-visible-count>6</span> items</span>
+          <span class="item-count" aria-live="polite"><span data-visible-count>1</span> item</span>
         </div>
 
         <div class="content-grid">
-          <article class="content-card" data-category="cardnews">
-            <div class="thumbnail"><span class="thumbnail-label">CARD NEWS</span></div>
-            <div class="content-card-body"><h3>부산, 파란 산책의 기록</h3><p>해안 산책로의 다섯 가지 풍경을 소개하는 감성 카드뉴스</p><div class="card-meta"><span>10 Slides</span><span>2026. 08</span></div></div>
-          </article>
-          <article class="content-card" data-category="video">
-            <div class="thumbnail alt"><span class="thumbnail-label">SHORT VIDEO</span></div>
-            <div class="content-card-body"><h3>골목에서 만난 하루</h3><p>지역의 작은 장소와 사람을 따라가는 세로형 숏폼 콘텐츠</p><div class="card-meta"><span>00:45</span><span>2026. 08</span></div></div>
-          </article>
-          <article class="content-card" data-category="campaign">
-            <div class="thumbnail deep"><span class="thumbnail-label">CAMPAIGN</span></div>
-            <div class="content-card-body"><h3>나만의 여행 온도</h3><p>여행 취향에 따라 지역을 추천하는 참여형 SNS 캠페인</p><div class="card-meta"><span>Series</span><span>2026. 07</span></div></div>
-          </article>
-          <article class="content-card" data-category="cardnews">
-            <div class="thumbnail alt"><span class="thumbnail-label">CARD NEWS</span></div>
-            <div class="content-card-body"><h3>야시장에서 고른 다섯 접시</h3><p>로컬 야시장의 대표 메뉴를 에디토리얼 형식으로 소개합니다.</p><div class="card-meta"><span>8 Slides</span><span>2026. 07</span></div></div>
-          </article>
-          <article class="content-card" data-category="video">
-            <div class="thumbnail deep"><span class="thumbnail-label">SHORT VIDEO</span></div>
-            <div class="content-card-body"><h3>숲의 소리를 걷다</h3><p>치유길의 소리와 움직임에 집중한 몰입형 관광 영상</p><div class="card-meta"><span>01:20</span><span>2026. 06</span></div></div>
-          </article>
-          <article class="content-card" data-category="campaign">
-            <div class="thumbnail"><span class="thumbnail-label">CAMPAIGN</span></div>
-            <div class="content-card-body"><h3>이번 주말, 여기 어때?</h3><p>짧은 일정에 맞춘 지역 여행 코스를 제안하는 주간 콘텐츠</p><div class="card-meta"><span>Weekly</span><span>2026. 06</span></div></div>
+          <article class="content-card poster-card" data-category="poster">
+            <a class="poster-artwork" href="nampo-podong.html" aria-label="남포동 포동포동 포스터 프로젝트 상세 보기">
+              <img src="assets/images/contents/nampo-podong-poster.png" alt="남포동 포동포동 부산 씨앗호떡 포스터">
+              <span class="thumbnail-label">POSTER · NAMPO-DONG</span>
+            </a>
+            <div class="content-card-body">
+              <span class="content-sequence">01 / POSTER</span>
+              <h3>남포동 포동포동</h3>
+              <p>부산 명물 씨앗호떡과 남포동 야시장의 활기를 담은 포스터입니다.</p>
+              <div class="poster-actions"><a href="nampo-podong.html">프로젝트 상세 보기 →</a><a href="assets/images/contents/nampo-podong-poster.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a></div>
+            </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-head"><div><span class="eyebrow">Upload Guide</span><h2 class="section-title">새로운 콘텐츠를 위한 자리</h2></div></div>
-        <div class="empty-slot"><div><strong>다음 결과물을 업로드해 보세요.</strong><span>이미지와 영상 파일은 assets 폴더에 추가한 뒤 콘텐츠 카드에 연결할 수 있습니다.</span></div></div>
+        <aside class="content-sound" aria-labelledby="content-sound-title">
+          <div><span class="content-sequence">SOUND EFFECT / 01</span><h3 id="content-sound-title">포동 포동</h3><p>첨부 음원의 앞부분 약 4초만 재생합니다.</p></div>
+          <button class="poster-sound-button" type="button" aria-pressed="false"><span aria-hidden="true">▶</span><span data-sound-label>효과음 재생 · 4초</span></button>
+          <audio class="poster-sound" preload="metadata" src="assets/audio/contents/podong-effect.mp3"></audio>
+        </aside>
       </div>
     </section>
   </main>

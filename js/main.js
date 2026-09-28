@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pageMap = [
     ["index.html", "HOME"],
-    ["report.html", "REPORT"],
     ["contents.html", "CONTENTS"],
+    ["report.html", "REPORT"],
     ["sns.html", "SNS"],
     ["final-project.html", "FINAL PROJECT"],
     ["SOUND771_Portfolio.html", "4 DITS (771)"],
@@ -139,6 +139,48 @@ document.addEventListener("DOMContentLoaded", () => {
         if (visibleCount) visibleCount.textContent = count;
       });
     });
+  }
+
+  const soundButton = document.querySelector(".poster-sound-button");
+  const sound = document.querySelector(".poster-sound");
+
+  if (soundButton && sound) {
+    const soundLabel = soundButton.querySelector("[data-sound-label]");
+    const soundIcon = soundButton.querySelector("[aria-hidden='true']");
+    let soundTimer;
+
+    const resetSound = () => {
+      window.clearTimeout(soundTimer);
+      sound.pause();
+      sound.currentTime = 0;
+      soundButton.setAttribute("aria-pressed", "false");
+      if (soundLabel) soundLabel.textContent = "효과음 재생 · 4초";
+      if (soundIcon) soundIcon.textContent = "▶";
+    };
+
+    soundButton.addEventListener("click", async () => {
+      if (!sound.paused) {
+        resetSound();
+        return;
+      }
+
+      sound.currentTime = 0;
+      try {
+        await sound.play();
+        soundButton.setAttribute("aria-pressed", "true");
+        if (soundLabel) soundLabel.textContent = "효과음 정지";
+        if (soundIcon) soundIcon.textContent = "Ⅱ";
+        soundTimer = window.setTimeout(resetSound, 4000);
+      } catch (error) {
+        resetSound();
+        if (soundLabel) soundLabel.textContent = "재생 버튼을 다시 눌러주세요";
+      }
+    });
+
+    sound.addEventListener("timeupdate", () => {
+      if (sound.currentTime >= 4) resetSound();
+    });
+    sound.addEventListener("ended", resetSound);
   }
 
   const resourceData = {

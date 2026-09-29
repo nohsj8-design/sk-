@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sound.pause();
       sound.currentTime = 0;
       soundButton.setAttribute("aria-pressed", "false");
-      if (soundLabel) soundLabel.textContent = "효과음 재생 · 4초";
+      if (soundLabel) soundLabel.textContent = "효과음 재생";
       if (soundIcon) soundIcon.textContent = "▶";
     };
 

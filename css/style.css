@@ -2178,6 +2178,10 @@ h3 {
 .content-sound p{margin:0;color:var(--color-text-muted);font-size:14px}
 .poster-sound-button{display:inline-flex;min-height:50px;padding:12px 18px;align-items:center;justify-content:center;gap:10px;border:1px solid var(--color-primary);border-radius:999px;background:var(--color-primary);color:#fff;font:800 14px/1.2 var(--font-body);cursor:pointer}
 .poster-sound-button:hover,.poster-sound-button:focus-visible{background:#124fbf;outline:3px solid rgba(37,99,235,.22);outline-offset:3px}
+.shortform-artwork{background:#071423}
+.shortform-artwork img{object-position:center center}
+.shortform-play{position:absolute;top:50%;left:50%;display:grid;width:58px;height:58px;place-items:center;padding-left:4px;border:1px solid rgba(255,255,255,.7);border-radius:50%;background:rgba(6,20,36,.78);color:#fff;font-size:20px;transform:translate(-50%,-50%);transition:transform .2s ease,background .2s ease}
+.shortform-artwork:hover .shortform-play,.shortform-artwork:focus-visible .shortform-play{background:#ff0033;transform:translate(-50%,-50%) scale(1.08)}
 
 /* Nampo-dong Podong Podong case study */
 .podong-page{--podong-cream:#fff8e9;--podong-gold:#ffbd27;--podong-brown:#6f351c;--podong-blue:#102344;--podong-red:#b62d22;background:var(--podong-cream);color:#171717}

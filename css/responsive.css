@@ -1,3 +1,5 @@
+@import url("refinement.css?v=1");
+
 @media (max-width: 1024px) {
   .site-nav a {
     padding: 10px 11px;

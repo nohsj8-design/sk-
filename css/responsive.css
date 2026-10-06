@@ -520,3 +520,37 @@
   .brand-layer-field span { width: calc(72% + var(--layer)*7%); }
   .brand-caption { flex-direction: column; gap: 6px; }
 }
+
+/* A blurred sticky ancestor must not contain the viewport-fixed mobile menu. */
+@media (max-width: 800px) {
+  body .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  body .site-nav {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 101;
+    background: #fff;
+    padding: calc(86px + env(safe-area-inset-top, 0px)) 24px calc(30px + env(safe-area-inset-bottom, 0px));
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    visibility: hidden;
+  }
+  body .site-nav.open { visibility: visible; }
+  body .site-nav ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 0;
+  }
+  body .site-nav li { flex-shrink: 0; }
+  body .menu-toggle { position: relative; z-index: 102; }
+}

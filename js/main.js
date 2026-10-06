@@ -50,9 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (main && currentPage !== "index.html") {
     const currentIndex = pageMap.findIndex(([href]) => href === currentPage);
-    if (currentIndex > 0) {
-      const previous = pageMap[currentIndex - 1];
-      const next = pageMap[currentIndex + 1] || pageMap[0];
+    if (currentIndex > 0 || currentPage === "nampo-podong.html") {
+      const previous = currentPage === "nampo-podong.html" ? ["contents.html", "CONTENTS"] : pageMap[currentIndex - 1];
+      const next = currentPage === "nampo-podong.html" ? ["report.html", "REPORT"] : pageMap[currentIndex + 1] || pageMap[0];
       const switcher = document.createElement("nav");
       switcher.className = "page-switcher";
       switcher.setAttribute("aria-label", "페이지 이동");

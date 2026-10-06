@@ -1,0 +1,2 @@
+/* The supplied editorial artwork includes its own lettering and framing. */
+body .landing-hero .hero-visual-image { height: auto; object-fit: contain; }

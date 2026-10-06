@@ -1,4 +1,8 @@
 /* 4 DITS: a restrained after-hours record sleeve. Gold belongs to the logo. */
+.music-project .record-index { position: absolute; top: -12px; left: 28px; z-index: 2; padding: 9px 16px; background: #233044; color: #e8e4dc; font: 11px/1.5 monospace; letter-spacing: .06em; pointer-events: none; }
+.music-project .record-charm { position: absolute; top: -32px; right: -35px; width: 160px; height: 160px; object-fit: contain; z-index: 3; transform-origin: 38% 17%; pointer-events: none; filter: drop-shadow(0 5px 4px #0b101725); }
+.music-project .record-charm.charm-swing { animation: charm-settle 1.4s ease-out 1; }
+@keyframes charm-settle { 0% { transform: rotate(0); } 18% { transform: rotate(10deg); } 42% { transform: rotate(-6deg); } 65% { transform: rotate(3deg); } 82% { transform: rotate(-1deg); } 100% { transform: rotate(0); } }
 .music-project { --music-bg:#0b1017; --music-surface:#141c28; --music-accent:#e8e4dc; --music-accent-hover:#fff; --music-on-accent:#0b1017; --music-border:#34404e; --music-silver:#c3cad4; }
 .music-project .site-header { background: #0b1017; }
 .music-project .cover { padding-top: 28px; background: #0b1017; min-height: auto; }
@@ -38,6 +42,8 @@
 .music-project .return-top { border-radius: 2px; font-size: 12px; box-shadow: none; }
 @keyframes listening-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
 @media(max-width:700px) {
+ .music-project .record-charm { width: 125px; height: 125px; right: -10px; top: -25px; }
+ .music-project .record-index { left: 20px; font-size: 10px; }
  .music-project .cover h1.cover-logo-heading { width: 260px; margin-bottom: 28px; }
  .music-project .cover-korean { font-size: 2rem; }
  .music-project .listening-cover { padding-top: 28px; gap: 42px; }
@@ -46,4 +52,4 @@
  .music-project .album-cover strong { font-size: clamp(3rem,13vw,4.5rem); }
  .music-project .album-case figcaption { font-size: 10px; gap: 10px; }
 }
-@media(prefers-reduced-motion:reduce) { .music-project .track-row.is-playing .row-arrow { animation: none; } }
+@media(prefers-reduced-motion:reduce) { .music-project .track-row.is-playing .row-arrow, .music-project .record-charm.charm-swing { animation: none; } }

@@ -1,0 +1,13 @@
+/* Index labels carry real project names; no ornamental numbering. */
+body .hero-visual, body .featured-project-visual { position: relative; }
+.archive-tab { position: absolute; z-index: 2; top: -12px; right: 24px; display: inline-flex; align-items: center; min-height: 34px; padding: 8px 16px; border-radius: 2px 2px 0 0; background: #155eef; color: #fff; font: 500 11px/1.5 monospace; letter-spacing: .075em; pointer-events: none; }
+body .featured-project-visual { overflow: visible; }
+body .featured-project-visual > img { max-height: 100%; object-fit: contain; }
+body .lt-hero-visual, body .lt-editorial-card { position: relative; border-left: 5px solid #bac9d2; box-shadow: 4px 4px 0 #d7dfe5, 8px 8px 0 #f0f3f5; }
+.edition-bookmark { position: absolute; z-index: 3; top: 0; right: 22px; display: flex; align-items: center; justify-content: center; width: 35px; min-height: 142px; padding: 18px 8px 25px; background: #155eef; color: #fff; font: 11px/1.5 monospace; letter-spacing: .1em; writing-mode: vertical-rl; clip-path: polygon(0 0,100% 0,100% 100%,50% calc(100% - 10px),0 100%); pointer-events: none; }
+body .lt-editorial-card .edition-bookmark { right: 18px; min-height: 112px; }
+@media(max-width:800px) {
+ .archive-tab { right: 16px; font-size: 10px; min-height: 30px; padding: 6px 12px; top: -10px; }
+ .edition-bookmark { right: 14px; width: 30px; min-height: 122px; font-size: 10px; }
+ body .lt-hero-visual, body .lt-editorial-card { box-shadow: 3px 3px 0 #d7dfe5, 6px 6px 0 #f0f3f5; border-left-width: 4px; }
+}

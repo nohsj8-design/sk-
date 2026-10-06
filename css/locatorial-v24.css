@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+.lv-page{--lv-primary:#1D4ED8;--lv-dark:#1E3A8A;--lv-tint:#EFF6FF;--lv-badge:#DBEAFE;--lv-gradient:linear-gradient(to right,#1e3a8a,#1d4ed8,#2563eb);background:#faf9f6;color:#292524}
+.lv-page .lv-main{background:radial-gradient(ellipse at 85% 10%,var(--lv-badge),transparent 36%),#faf9f6;transition:background-color .3s;color:#292524}
+.lv-page .lv-shell{width:min(1200px,calc(100% - 64px));margin-inline:auto}
+.lv-page .lv-hero{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:72px;padding-block:84px}
+.lv-page .lv-label{font-family:"Pretendard Variable",sans-serif;font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--lv-dark)}
+.lv-page .lv-slogan{font-family:"Pretendard Variable",sans-serif;font-weight:900;letter-spacing:.24em;font-size:13px;color:var(--lv-dark);margin:22px 0}
+.lv-page h1{font-family:'Nanum Myeongjo',serif;font-size:clamp(32px,3.5vw,52px);line-height:1.5;letter-spacing:-.04em;font-weight:800;margin:0 0 24px;color:#292524}
+.lv-page .lv-body,.lv-page .lv-section p,.lv-page blockquote{font-family:'Nanum Myeongjo',serif;line-height:1.9;font-size:16px}
+.lv-page .lv-body{max-width:540px;margin:0 0 30px}
+.lv-page .lv-button{display:inline-flex;gap:20px;align-items:center;min-height:52px;padding:14px 24px;border-radius:16px;background:var(--lv-dark);color:white;font-size:15px;font-weight:800}
+.lv-page .lv-button small{font-size:12px;font-weight:500;opacity:.85}.lv-page .lv-button:hover{filter:brightness(1.15)}
+.lv-page .lv-cover{border:1px solid #e7e5e4;border-radius:24px;padding:28px;background:#fffefa;box-shadow:0 20px 70px -45px var(--lv-dark)}
+.lv-page .lv-cover-top,.lv-page .lv-cover-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px}
+.lv-page .lv-cover-top strong{font-size:20px;letter-spacing:-.04em}
+.lv-page .lv-cover-art{padding:42px 0 28px}.lv-page .lv-cover-art>span{display:block;font-size:clamp(40px,4.6vw,70px);font-weight:900;line-height:1.03;letter-spacing:-.05em;color:var(--lv-dark)}
+.lv-page .lv-cover-art p{font-family:'Nanum Myeongjo',serif;line-height:1.9;margin:24px 0 0;font-size:16px}
+.lv-page .lv-mood-bar{height:10px;border-radius:999px;background:var(--lv-gradient)}.lv-page .lv-cover-bottom{padding-top:16px;color:#57534e}
+.lv-page .lv-section{padding-block:76px}.lv-page .lv-section-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:64px;margin-bottom:36px}
+.lv-page h2{font-family:'Nanum Myeongjo',serif;font-size:clamp(26px,2.7vw,38px);font-weight:800;line-height:1.55;letter-spacing:-.03em;margin:12px 0 0;color:#292524}
+.lv-page .lv-section-head p{color:#57534e;margin:0}.lv-page h3{font-size:20px;line-height:1.5;margin:16px 0 12px;color:#292524}
+.lv-page .lv-showcase{background:var(--lv-tint);border-block:1px solid #e7e5e4}
+.lv-page .lv-color-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px}.lv-page .lv-selectors h3{font-size:16px;margin:0 0 18px}.lv-page .lv-selectors h3:not(:first-child){margin-top:32px}
+.lv-page .lv-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.lv-page .lv-option{display:flex;align-items:center;gap:12px;text-align:left;background:#fffefa;border:1px solid #d6d3d1;border-radius:16px;padding:14px;font:600 14px/1.5 "Pretendard Variable",sans-serif;min-height:58px;color:#292524;cursor:pointer}
+.lv-page .lv-option[aria-pressed=true]{border-color:var(--lv-dark);box-shadow:inset 0 0 0 1px var(--lv-dark)}.lv-page .lv-swatch{width:22px;height:22px;border-radius:50%;border:1px solid #0002;flex-shrink:0}
+.lv-page .lv-live{background:#fffefa;border:1px solid #e7e5e4;border-radius:24px;padding:32px}.lv-page .lv-live h3{color:var(--lv-dark);font-size:24px}.lv-page .lv-live p{margin:0}
+.lv-page blockquote{margin:30px 0;color:var(--lv-dark);font-weight:700;font-size:24px}.lv-page .lv-color-values{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font:12px/1.6 monospace}.lv-page .lv-live .lv-live-note{font:12px/1.6 "Pretendard Variable",sans-serif;margin-top:12px;color:#57534e}
+.lv-page .lv-tab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.lv-page .lv-tab-grid article{padding:24px;border:1px solid #e7e5e4;border-radius:24px;background:#fffefa}
+.lv-page .lv-tab-grid p{font-size:15px}.lv-page .lv-tab-grid small{display:block;font-size:12px;line-height:1.9;color:#57534e}.lv-page .lv-door{width:20px;height:20px;fill:none;stroke:#5A2E12;stroke-width:1.5;vertical-align:middle}
+.lv-page .lv-editions{background:#f2f1ed}.lv-page .lv-edition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.lv-page .lv-edition{border:1px solid #e7e5e4;border-radius:24px;overflow:hidden;background:#fffefa}
+.lv-page .lv-edition-image{position:relative;height:320px;background:#eee}.lv-page .lv-edition-image img{width:100%;height:100%;object-fit:cover}.lv-page .lv-edition-image>span{position:absolute;left:20px;bottom:20px;background:#fffefa;padding:8px 12px;font-size:12px;letter-spacing:.15em}
+.lv-page .lv-book{height:320px;background:#5A2E12;color:#FDFD8B;padding:28px;display:flex;flex-direction:column;justify-content:space-between}.lv-page .lv-book-blue{background:#0369A1;color:#e0f2fe}
+.lv-page .lv-book span{font-size:12px;letter-spacing:.14em}.lv-page .lv-book strong{font-family:'Nanum Myeongjo',serif;font-size:32px;line-height:1.65}
+.lv-page .lv-edition-copy{padding:24px}.lv-page .lv-edition-copy h3{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:21px}.lv-page .lv-edition-copy p{font-size:14px;margin:0}.lv-page .lv-caption{font:12px/1.7 "Pretendard Variable",sans-serif!important;color:#57534e;margin-top:20px}
+.lv-page .lv-philosophy{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}.lv-page .lv-philosophy article{padding:24px 0;border-top:1px solid #d6d3d1}.lv-page .lv-philosophy h3{margin:14px 0 8px;font-size:18px}.lv-page .lv-philosophy p{font-size:14px;margin:0}
+.lv-page .lv-final{text-align:center;border-top:1px solid #e7e5e4;padding-block:60px 80px}.lv-page .lv-final h2{margin-bottom:28px}
+.lv-page button:focus-visible,.lv-page a:focus-visible{outline:3px solid #0284C7;outline-offset:4px}
+.lv-page .lv-hero>*,.lv-page .lv-color-layout>*,.lv-page .lv-section-head>*{min-width:0}
+.lv-page .lv-cover-art>span{overflow-wrap:anywhere}
+@media(max-width:1000px){.lv-page .lv-hero{gap:32px}.lv-page .lv-tab-grid{grid-template-columns:1fr 1fr}.lv-page .lv-book strong{font-size:26px}}
+@media(max-width:760px){.lv-page .lv-shell{width:calc(100% - 40px)}.lv-page .lv-hero{grid-template-columns:1fr;padding-block:44px;gap:40px}.lv-page .lv-section{padding-block:48px}.lv-page .lv-section-head,.lv-page .lv-color-layout{grid-template-columns:1fr;gap:24px}.lv-page .lv-section-head{margin-bottom:28px}.lv-page .lv-edition-grid{grid-template-columns:1fr}.lv-page .lv-philosophy{grid-template-columns:1fr}.lv-page .lv-slogan{font-size:12px;letter-spacing:.24em}.lv-page .lv-cover-art>span{font-size:56px}.lv-page .lv-tab-grid{grid-template-columns:1fr}.lv-page .lv-live{padding:24px}.lv-page .lv-option{padding:12px;font-size:13px}.lv-page .lv-book strong{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.lv-page .lv-main{transition:none}}

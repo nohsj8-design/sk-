@@ -1,4 +1,14 @@
 (() => {
+  const backTop = document.querySelector('.ls-back-top');
+  if (backTop) {
+    const updateBackTop = () => { backTop.hidden = window.scrollY < 400; };
+    window.addEventListener('scroll', updateBackTop, {passive:true});
+    updateBackTop();
+    backTop.addEventListener('click', () => {
+      document.querySelector('#main-content').focus({preventScroll:true});
+      window.scrollTo({top:0, behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    });
+  }
   const panel = document.querySelector('.ls-lens-layout');
   if (!panel) return;
   const lenses = {

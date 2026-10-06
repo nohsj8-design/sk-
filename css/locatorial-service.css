@@ -1,0 +1,44 @@
+.ls-page{background:#fafaf8;color:#1c231e}
+.ls-page .ls-main{background:#fafaf8;color:#1c231e}
+.ls-page .ls-shell{width:min(1180px,calc(100% - 64px));margin-inline:auto}
+.ls-page .ls-hero{display:grid;grid-template-columns:1.3fr .8fr;gap:80px;align-items:center;padding-block:64px}
+.ls-page .ls-kicker{display:block;font-size:13px;font-weight:800;letter-spacing:.06em;color:#1e3a8a}
+.ls-page .ls-slogan{font-weight:900;font-size:13px;letter-spacing:.24em;color:#1e3a8a;margin:0 0 24px}
+.ls-page h1{font-size:clamp(32px,3.4vw,48px);line-height:1.45;font-weight:800;letter-spacing:-.045em;margin:20px 0 24px;color:#1c231e}
+.ls-page h1 em{font-style:normal;color:#1e3a8a}
+.ls-page p{line-height:1.9;font-size:16px;color:#57534e}
+.ls-page .ls-lead{max-width:590px;margin-bottom:30px}
+.ls-page .ls-button{display:inline-flex;align-items:center;gap:24px;background:#1e3a8a;color:#fff;border-radius:14px;padding:15px 24px;min-height:52px;font-weight:800;font-size:15px}
+.ls-page .ls-button small{font-size:12px;font-weight:500}.ls-page .ls-meta{font-size:12px;margin-top:18px}
+.ls-page .ls-screen{margin:0;min-width:0;text-align:center}
+.ls-page .ls-screen img{width:100%;max-width:340px;height:auto;display:block;margin-inline:auto;border:1px solid #e7e5e4;border-radius:20px;box-shadow:0 18px 40px -30px #1c231e55}
+.ls-page .ls-hero-screen img{max-width:320px}.ls-page figcaption{margin-top:16px;font-size:12px;color:#78716c;line-height:1.7}
+.ls-page .ls-flow{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid #d6d3d1;padding-block:22px}
+.ls-page .ls-flow a{display:flex;gap:16px;align-items:center;font-size:15px;font-weight:700;color:#1c231e}.ls-page .ls-flow span{font:12px monospace;color:#78716c}
+.ls-page .ls-section{padding-block:80px;scroll-margin-top:110px}
+.ls-page .ls-section-head{margin-bottom:42px}
+.ls-page h2{font-size:clamp(27px,2.7vw,38px);line-height:1.5;letter-spacing:-.035em;font-weight:750;color:#1c231e;margin:14px 0 20px}
+.ls-page h3{font-size:26px;line-height:1.6;letter-spacing:-.025em;font-weight:750;color:#1c231e;margin:20px 0}
+.ls-page .ls-perspectives{background:#f4f3f0;border-block:1px solid #e7e5e4}
+.ls-page .ls-lens-layout{--lens:#581c87;--lens-tint:#faf5ff;display:grid;grid-template-columns:1.3fr .8fr;gap:80px;align-items:center}
+.ls-page .ls-lens-layout[data-lens=editor]{--lens:#5a2e12;--lens-tint:#fffdec}
+.ls-page .ls-lens-layout[data-lens=artist]{--lens:#0369a1;--lens-tint:#f0f9ff}
+.ls-page .ls-lens-copy{background:var(--lens-tint);border:1px solid #e7e5e4;padding:32px;border-radius:24px}
+.ls-page .ls-lens-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.ls-page .ls-lens-buttons button{background:#fff;border:1px solid #d6d3d1;border-radius:999px;padding:12px 16px;font:700 14px/1.5 "Pretendard Variable",sans-serif;color:#44403c;cursor:pointer;min-height:46px}
+.ls-page .ls-lens-buttons button[aria-pressed=true]{background:var(--lens);color:#fff;border-color:var(--lens)}
+.ls-page .ls-lens-copy h3,.ls-page .ls-lens-copy .ls-kicker{color:var(--lens)}.ls-page .ls-lens-note{border-top:1px solid #d6d3d1;margin-top:32px;padding-top:24px}.ls-page .ls-lens-note strong{font-size:16px;line-height:1.7}.ls-page .ls-lens-note p{font-size:13px}
+.ls-page .ls-detail{display:grid;grid-template-columns:.8fr 1.3fr;align-items:center;gap:100px}
+.ls-page .ls-detail-copy p{max-width:600px}
+.ls-page blockquote{margin:30px 0;padding:24px 0 24px 24px;border-left:3px solid #9333ea;font-size:24px;line-height:1.6;font-weight:700;color:#581c87}
+.ls-page .ls-disclaimer{font-size:13px!important}
+.ls-page .ls-explore{background:#eff6fa;border-block:1px solid #e7e5e4}
+.ls-page .ls-reverse{grid-template-columns:1.3fr .8fr}
+.ls-page .ls-points{list-style:none;padding:0;margin:28px 0 0}.ls-page .ls-points li{border-top:1px solid #d6d3d1;padding:20px 0}.ls-page .ls-points strong,.ls-page .ls-points span{display:block}.ls-page .ls-points strong{font-size:16px}.ls-page .ls-points span{font-size:14px;color:#57534e;margin-top:8px;line-height:1.8}
+.ls-page .ls-record-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}.ls-page .ls-record-grid article{min-width:0;border:1px solid #e7e5e4;border-radius:24px;padding:32px;background:#fff}.ls-page .ls-record-grid .ls-screen{background:#faf5ff;border-radius:16px;padding:20px 12px}.ls-page .ls-record-grid .ls-screen img{max-width:280px;border-radius:12px}.ls-page .ls-record-grid h3{font-size:23px}.ls-page .ls-small{font-size:13px;line-height:1.8;color:#57534e}
+.ls-page .ls-theme{display:flex;align-items:center;justify-content:space-between;gap:40px;border-block:1px solid #d6d3d1;padding-block:32px}.ls-page .ls-theme h3{font-size:20px;margin:10px 0}.ls-page .ls-theme p{font-size:14px;max-width:670px;margin:0}
+.ls-page .ls-theme-colors{display:flex;gap:14px;flex-shrink:0}.ls-page .ls-theme-colors span{font-size:12px;color:#57534e;text-align:center}.ls-page .ls-theme-colors span:before{content:"";display:block;background:var(--swatch);width:26px;height:26px;border-radius:50%;margin:0 auto 8px}
+.ls-page .ls-final{text-align:center;padding-block:64px 80px}.ls-page .ls-final h2{margin-bottom:30px}
+.ls-page button:focus-visible,.ls-page a:focus-visible{outline:3px solid #0284c7;outline-offset:4px}
+@media(max-width:1000px){.ls-page .ls-hero,.ls-page .ls-lens-layout,.ls-page .ls-detail{gap:40px}.ls-page .ls-record-grid{gap:24px}.ls-page .ls-lens-copy{padding:24px}}
+@media(max-width:760px){.ls-page .ls-shell{width:calc(100% - 40px)}.ls-page .ls-hero,.ls-page .ls-lens-layout,.ls-page .ls-detail,.ls-page .ls-record-grid{grid-template-columns:1fr;gap:32px}.ls-page .ls-hero{padding-block:40px}.ls-page .ls-section{padding-block:48px}.ls-page .ls-screen img{max-width:300px}.ls-page .ls-flow{grid-template-columns:1fr 1fr;gap:20px}.ls-page .ls-flow a{font-size:14px}.ls-page .ls-lens-copy{padding:24px 20px}.ls-page .ls-lens-buttons{gap:6px}.ls-page .ls-lens-buttons button{padding:10px 12px;font-size:13px}.ls-page .ls-detail>.ls-screen{order:2}.ls-page .ls-record-grid article{padding:24px}.ls-page .ls-theme{flex-direction:column;align-items:flex-start;gap:24px}.ls-page .ls-slogan{font-size:12px}.ls-page blockquote{font-size:21px}}

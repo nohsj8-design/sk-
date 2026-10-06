@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sound.pause();
       sound.currentTime = 0;
       soundButton.setAttribute("aria-pressed", "false");
-      if (soundLabel) soundLabel.textContent = "효과음 재생";
+      if (soundLabel) soundLabel.textContent = "로고 스팅 재생";
       if (soundIcon) soundIcon.textContent = "▶";
     };
 
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         await sound.play();
         soundButton.setAttribute("aria-pressed", "true");
-        if (soundLabel) soundLabel.textContent = "효과음 정지";
+        if (soundLabel) soundLabel.textContent = "로고 스팅 정지";
         if (soundIcon) soundIcon.textContent = "Ⅱ";
         soundTimer = window.setTimeout(resetSound, 4000);
       } catch (error) {

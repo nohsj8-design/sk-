@@ -1,0 +1,44 @@
+/* After-hours portrait editorial; shared identity without shared navigation. */
+.dits-intro-page,.music-project{--dits-night:#091b1d;--dits-paper:#eeeae1;--dits-muted:#a6b8b7;--dits-line:#345052}
+.dits-quartet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;overflow:hidden}
+.dits-portrait{overflow:hidden;min-width:0;background:#102629}
+.dits-quartet img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.dits-quartet .portrait-2 img{transform:scale(1.17);transform-origin:50% 26%}
+.dits-intro-page .dits-intro-hero{background:var(--dits-night);color:var(--dits-paper);border-color:var(--dits-line);padding-block:68px}
+.dits-intro-page .dits-intro-copy h1{color:var(--dits-paper);font-size:clamp(2.3rem,3.7vw,3.4rem);font-weight:550}
+.dits-intro-page .dits-intro-copy .lead,.dits-intro-page .dits-intro-status{color:var(--dits-muted)}
+.dits-intro-page .dits-intro-hero .eyebrow{color:var(--dits-paper)}
+.dits-intro-page .dits-brand-surface{padding:24px 0 0;background:transparent}
+.dits-intro-page .dits-brand-surface>.archive-tab{display:none}
+.dits-intro-page .dits-brand-surface>img{width:230px;margin:0 auto 22px}
+.dits-intro-page .dits-quartet{height:270px}
+.dits-intro-page .dits-brand-surface figcaption{margin-top:18px;border-color:var(--dits-line);color:var(--dits-muted)}
+.dits-intro-page .dits-site-button{background:var(--dits-paper);color:var(--dits-night);border-color:var(--dits-paper)}
+.dits-intro-page .dits-new-window{border-color:#34505255}
+.dits-intro-page .dits-site-button:hover{background:#fff;color:var(--dits-night)}
+.dits-intro-page .dits-member-grid img{aspect-ratio:2/3;object-fit:contain;background:var(--dits-night)}
+.dits-intro-page .dits-member-grid figcaption{border-top:1px solid #cbd0d6;margin-top:14px;padding-top:12px}
+.dits-intro-page .dits-release-list strong{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:1.9rem}
+.dits-intro-page .dits-visit{background:var(--dits-night)}
+.music-project{--music-bg:#091b1d;--music-surface:#102629;--music-border:#345052;--music-silver:#a6b8b7;--music-accent:#eeeae1;--music-on-accent:#091b1d}
+.music-project .site-header,.music-project .cover,.music-project .chapter-band,.music-project .people,.music-project .outro,.music-project footer{background:var(--dits-night)}
+.music-project .album-case{transform:none;background:#102629}
+.music-project .album-case .dits-quartet{height:400px}
+.music-project .record-charm{width:105px;height:105px;top:-28px;right:-14px}
+.music-project .record-index{background:#102629}
+.music-project .dits-record-title{padding:24px 26px 28px;color:var(--dits-paper)}
+.music-project .dits-record-title span{font:11px/1.5 monospace;color:var(--dits-muted);letter-spacing:.08em}
+.music-project .dits-record-title strong{display:block;margin-top:12px;font:400 clamp(32px,3vw,48px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.04em}
+.music-project .album-case figcaption{color:var(--dits-muted);border-color:var(--dits-line)}
+.music-project .cover-korean{font-weight:500}
+.music-project .track-row.title-track{background:#102629;border-color:var(--dits-line)}
+.music-project .playbar{background:#091b1df5;border-top:1px solid var(--dits-line);box-shadow:none}
+.music-project .now-info strong{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:25px}
+.music-project .now-info>span,.music-project .now-info small{color:var(--dits-muted)}
+.music-project .music-controls button{background:var(--dits-paper);color:var(--dits-night);border-color:var(--dits-paper)}
+.music-project .track-row.is-playing .row-arrow{animation:none}
+.music-project .film{border-color:var(--dits-line);background:var(--dits-night)}
+.music-project .person-bottom h3{font-weight:500}
+@media(max-width:800px){.dits-intro-page .dits-intro-hero{padding-block:40px}.dits-intro-page .dits-quartet{height:240px}.dits-intro-page .dits-brand-surface>img{width:200px}}
+@media(max-width:700px){.music-project .album-case{width:100%}.music-project .album-case .dits-quartet{height:320px}.music-project .record-charm{width:85px;height:85px;right:-4px;top:-22px}.music-project .dits-record-title{padding:22px}.music-project .now-info strong{font-size:20px}}
+@media(max-width:360px){.dits-intro-page .dits-quartet{height:200px}.music-project .album-case .dits-quartet{height:270px}}

@@ -1,0 +1,33 @@
+.music-project{--music-bg:#101722;--music-surface:#192333;--music-border:#364254;--music-text:#f2f1ed;--music-silver:#a8afba;--music-accent:#7c9cff;--dits-night:#101722;--dits-paper:#f2f1ed;--dits-muted:#a8afba;--dits-line:#364254}
+.music-project .cover,.music-project .chapter-band,.music-project #legacy-members{display:none}
+.music-project .site-header{position:relative;background:#101722;border-bottom:1px solid #364254}
+.artist-cover{padding:38px var(--gutter) 30px;background:#101722}
+.artist-cover-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+.artist-cover h1{font:400 clamp(36px,4vw,68px)/1.04 Georgia,serif;letter-spacing:-.04em}.artist-cover h1 span{color:#a8afba}
+.artist-cover-heading p{font-size:14px;line-height:1.8;color:#a8afba;text-align:right}
+.artist-lineup{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.artist-panel{position:relative;border:0;padding:0;background:#192333;color:#fff;cursor:pointer;overflow:hidden;text-align:left}
+.artist-panel img{display:block;width:100%;height:clamp(320px,36vw,550px);object-fit:cover;transition:transform .5s}
+.artist-panel span{position:absolute;bottom:0;left:0;right:0;padding:48px 20px 20px;background:linear-gradient(transparent,#101722d9)}
+.artist-panel small{display:block;font:12px monospace;letter-spacing:.1em}.artist-panel strong{display:block;font-size:24px;font-weight:500;margin-top:6px}
+.artist-panel:hover img{transform:scale(1.02)}.artist-panel:focus-visible{outline:3px solid #7c9cff;outline-offset:3px}
+.artist-cover-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px}.artist-cover-bottom p{font-size:16px;color:#a8afba}
+.music-project .artist-cover-bottom .hero-play{background:#f2f1ed;color:#101722;border-color:#f2f1ed;min-height:46px}
+.artist-explorer,.artist-gallery{padding:64px var(--gutter);scroll-margin-top:24px}
+.artist-explorer{background:#f2f1ed;color:#101722}.artist-section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.artist-section-heading h2{font-size:clamp(28px,3vw,44px);font-weight:500;letter-spacing:-.045em}.artist-section-heading p{font-size:16px;line-height:1.8}
+.member-tabs{display:flex;border-bottom:1px solid #c5c9ce;margin-bottom:32px;gap:28px}.member-tabs button{background:none;border:0;border-bottom:3px solid transparent;color:#555e6b;padding:16px 0;font:inherit;cursor:pointer;min-height:48px}
+.member-tabs button[aria-pressed=true]{color:#101722;border-color:#4169e1}
+.member-spread{display:grid;grid-template-columns:1.25fr 1fr;gap:8vw;max-width:1150px;margin:auto;align-items:center}
+.member-pose button,.member-closeup,.concept-grid button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.member-pose img{display:block;width:100%;max-height:690px;object-fit:contain;background:#e9e9e6}.member-pose figcaption{font:12px monospace;margin-top:14px;color:#596171}
+.member-english{font:14px monospace;letter-spacing:.15em;color:#596171}.member-editorial h3{font-size:clamp(36px,4vw,60px);font-weight:500;margin:16px 0}
+.member-editorial>p:not(.member-english){font-size:16px;line-height:1.8}.member-closeup{max-width:250px;margin-top:32px}.member-closeup img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 25%}.member-editorial .photo-hint{font-size:13px!important;color:#596171;margin-top:12px}
+.artist-gallery{background:#101722;color:#f2f1ed}.artist-gallery .artist-section-heading p{color:#a8afba}.concept-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.alternate-gallery{padding-top:0}.alternate-gallery .concept-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.concept-grid figure:nth-child(even){padding-top:50px}.concept-grid img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}.concept-grid figcaption{display:flex;justify-content:space-between;gap:8px;border-top:1px solid #364254;padding-top:14px;margin-top:14px;font-size:16px}.concept-grid figcaption span{font:12px monospace;color:#a8afba}
+.artist-lightbox{background:#101722;color:#f2f1ed;border:1px solid #364254;max-width:95vw;max-height:94dvh;padding:48px 20px 20px;margin:auto}.artist-lightbox::backdrop{background:#05080ee8}.artist-lightbox>img{display:block;max-width:85vw;max-height:75dvh;object-fit:contain}.artist-lightbox p{font-size:14px;margin-top:12px}.lightbox-close{position:absolute;right:12px;top:8px;min-height:36px;background:none;color:#fff;border:0;font:inherit;cursor:pointer}
+.music-project .playbar{background:#101722f5}.music-project .notes{padding-top:48px;padding-bottom:48px}
+@media(max-width:700px){.artist-cover{padding-top:28px}.artist-cover-heading{display:block}.artist-cover-heading p{text-align:left;margin-top:16px}.artist-lineup{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px}.artist-panel{flex:0 0 83%;scroll-snap-align:start}.artist-panel img{height:440px;object-fit:cover}.artist-cover-bottom{align-items:start;flex-direction:column}.artist-cover-bottom .hero-play{width:100%}.artist-explorer,.artist-gallery{padding:40px var(--gutter)}.artist-section-heading{display:block}.artist-section-heading p{margin-top:12px}.member-tabs{gap:0;justify-content:space-between}.member-tabs button{font-size:15px}.member-spread{grid-template-columns:1fr;gap:28px}.member-pose img{max-height:540px}.member-editorial{display:grid;grid-template-columns:1fr 130px;gap:8px 16px}.member-english,.member-editorial h3,.member-editorial>p{grid-column:1}.member-editorial h3{margin:8px 0}.member-closeup{grid-column:2;grid-row:1/4;margin:0}.member-editorial .photo-hint{grid-column:1/-1}.concept-grid{grid-template-columns:1fr 1fr;gap:24px 14px}.concept-grid figure:nth-child(even){padding-top:28px}.concept-grid figcaption{flex-direction:column;font-size:15px}.artist-panel span{padding:40px 18px 18px}}
+@media(prefers-reduced-motion:reduce){.artist-panel img{transition:none}.artist-panel:hover img{transform:none}}
+@media(max-width:700px){.alternate-gallery .concept-grid{grid-template-columns:1fr 1fr}.alternate-gallery .concept-grid figure:last-child{grid-column:1/-1;width:70%;margin:auto}}

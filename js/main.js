@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ["report.html", "REPORT"],
     ["sns.html", "SNS"],
     ["final-project.html", "FINAL PROJECT"],
-    ["4dits.html", "4 DITS (771)"],
     ["locatorial.html", "LOC.TORIAL"],
+    ["4dits.html", "4 DITS (771)"],
     ["brand.html", "BRAND"]
   ];
   const currentPage = window.location.pathname.split("/").pop() || "index.html";

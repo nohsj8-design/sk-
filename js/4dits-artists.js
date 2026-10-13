@@ -6,8 +6,17 @@
   const moods = ['바시티 재킷과 데님, 햇살 아래 캠퍼스의 청춘.','코발트 재킷과 실버 체인, 무대의 빛을 담은 포즈.','브라운 재킷과 푸른 하늘, 도시의 저녁을 담은 장면.','블랙 실루엣과 푸른 바다, 황혼의 해변에서.'];
   const labels = ['CAMPUS','COBALT','BLUE HOUR','COAST'];
   const base = 'assets/4-dits-771/';
+  const groupButton = document.querySelector('[data-group]');
+  groupButton.addEventListener('click', () => {
+    document.querySelector('.group-overview').hidden = false;
+    document.querySelector('.member-spread').hidden = true;
+    document.querySelectorAll('.member-tabs button').forEach(b => b.setAttribute('aria-pressed', String(b === groupButton)));
+  });
   document.querySelectorAll('[data-member]').forEach(button => button.addEventListener('click', () => {
     const i = Number(button.dataset.member);
+    document.querySelector('.group-overview').hidden = true;
+    document.querySelector('.member-spread').hidden = false;
+    groupButton.setAttribute('aria-pressed','false');
     document.querySelectorAll('.member-tabs button').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.member) === i)));
     const pose = document.getElementById('memberPose');
     pose.src = base + photos[i]; pose.alt = names[i] + ' ' + labels[i] + ' 화보';

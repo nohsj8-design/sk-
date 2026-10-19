@@ -1,0 +1,27 @@
+/* A single creative channel, not a pair of platform cards. */
+.sns-page .page-hero{padding:48px 0 36px;background:#f6f7fa}
+.sns-page .page-hero .container{grid-template-columns:1.15fr 1fr;gap:12px 48px}
+.sns-page .page-title{font-size:clamp(34px,4vw,58px);line-height:1.18;margin:8px 0 0;letter-spacing:-.055em}
+.sns-page .page-hero .lead{font-size:17px;line-height:1.85;margin:0;color:#566174}
+.sns-page .virtual-channel-section{padding:0 0 64px;background:#f6f7fa}
+.sns-page .virtual-channel{background:#122238;color:#f5f6fa;padding:30px 44px 44px;border-top:5px solid #426dff}
+.sns-page .virtual-channel-top{display:flex;justify-content:space-between;gap:20px;padding-bottom:24px;border-bottom:1px solid #3e4b60;font:12px/1.5 monospace;letter-spacing:.13em;color:#bac9e7}
+.sns-page .virtual-channel-top>span:last-child{color:#aeb9cb}
+.sns-page .virtual-channel-main{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:8%;padding-top:44px}
+.sns-page .virtual-channel-label{font-size:14px;color:#c2cee2;margin:0 0 20px}
+.sns-page .virtual-channel h2{font-size:clamp(44px,5.2vw,76px);line-height:1.15;letter-spacing:-.065em;font-weight:750;color:#fff;margin:0}
+.sns-page .virtual-channel-handle{font:14px/1.6 monospace;color:#aebbd1;margin-top:18px}
+.sns-page .virtual-channel-visit{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#f5f6fa;color:#122238;min-height:52px;padding:14px 22px;border:1px solid #f5f6fa;margin-top:30px;font-size:16px;font-weight:700;text-decoration:none;border-radius:5px;transition:background .18s,border-color .18s}
+.sns-page .virtual-channel-visit:hover{background:#dce5ff;border-color:#dce5ff}
+.sns-page .virtual-channel-visit svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5}.sns-page .virtual-channel-visit svg path:last-child{fill:currentColor;stroke:none}
+.sns-page .virtual-channel-story{border-left:1px solid #3e4b60;padding-left:34px}
+.sns-page .virtual-channel-story h3{font-size:clamp(24px,2.5vw,36px);line-height:1.4;letter-spacing:-.04em;font-weight:500;margin:0 0 22px;color:#f5f6fa}
+.sns-page .virtual-channel-story>p{font-size:16px;line-height:1.9;color:#c1ccde;margin:0;max-width:420px;word-break:keep-all}
+.sns-page .virtual-channel-topics{display:flex;flex-wrap:wrap;gap:10px 18px;padding:0;margin:28px 0 0;list-style:none;color:#afc5ff;font-size:14px}
+.sns-page .virtual-channel-related{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:24px;color:#566174;font-size:14px}
+.sns-page .virtual-channel-instagram{display:flex;gap:18px;align-items:center;min-height:44px;color:#233d70;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:5px}
+.sns-page .virtual-channel-instagram span{font-size:12px;font-weight:400;color:#566174}
+.sns-page .virtual-channel-visit:focus-visible,.sns-page .virtual-channel-instagram:focus-visible{outline:3px solid #86a2ff;outline-offset:5px}
+@media(max-width:800px){.sns-page .page-hero .container{grid-template-columns:1fr;gap:20px}.sns-page .page-hero .lead{margin:0}.sns-page .virtual-channel{padding:26px}.sns-page .virtual-channel-main{gap:34px}.sns-page .virtual-channel h2{font-size:44px}.sns-page .virtual-channel-story{padding-left:24px}.sns-page .virtual-channel-top{font-size:11px}}
+@media(max-width:600px){.sns-page .page-hero{padding:32px 0 28px}.sns-page .page-hero .container{gap:14px}.sns-page .page-title{font-size:36px;margin:0}.sns-page .page-hero .lead{font-size:16px}.sns-page .virtual-channel{padding:22px}.sns-page .virtual-channel-top{flex-wrap:wrap;gap:6px;padding-bottom:20px;letter-spacing:.08em}.sns-page .virtual-channel-main{grid-template-columns:1fr;padding-top:28px;gap:32px}.sns-page .virtual-channel h2{font-size:clamp(38px,10vw,52px)}.sns-page .virtual-channel-label{margin-bottom:14px}.sns-page .virtual-channel-visit{width:100%;margin-top:24px}.sns-page .virtual-channel-story{border-left:0;border-top:1px solid #3e4b60;padding:26px 0 0}.sns-page .virtual-channel-story h3{font-size:25px;margin-bottom:16px}.sns-page .virtual-channel-topics{margin-top:20px;font-size:13px;gap:10px 16px}.sns-page .virtual-channel-related{align-items:flex-start;flex-direction:column;gap:8px}.sns-page .virtual-channel-related>p{margin:0}.sns-page .virtual-channel-section{padding-bottom:40px}}
+@media(prefers-reduced-motion:reduce){.sns-page .virtual-channel-visit{transition:none}}

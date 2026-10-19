@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <a class="footer-brand" href="index.html" aria-label="771 LAYERS 홈"><img src="assets/images/brand/771-layers-logo-white.png" alt="771 LAYERS"></a>
           <p class="footer-title">부산의 시간과 장소를<br>새로운 콘텐츠의 층으로 쌓습니다.</p>
           <div class="footer-social" aria-label="소셜 미디어">
-            <a class="social-link" href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer" aria-label="휴양부산 인스타그램 새 창에서 열기"><span class="social-icon instagram" aria-hidden="true"></span><span>Instagram</span></a>
-            <a class="social-link" href="https://www.youtube.com/@BusanHuyangJoa" target="_blank" rel="noopener noreferrer" aria-label="부산 휴양좋아 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
+            <a class="social-link" href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 새 창에서 열기"><span class="social-icon instagram" aria-hidden="true"></span><span>Instagram</span></a>
+            <a class="social-link" href="https://www.youtube.com/@Virtualbusan" target="_blank" rel="noopener noreferrer" aria-label="버츄얼 부산 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
           </div>
         </div>
         <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav>`;

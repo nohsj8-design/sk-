@@ -342,7 +342,7 @@ const snapshots=merge(data.posts,p=>p.cid+'|'+p.ch+'|'+p.asOf,p=>
 const dates=rows.filter(r=>metricKeys.some(k=>num(r[k]))).map(r=>r.date)
  .concat(snapshots.filter(p=>metricKeys.some(k=>num(p[k]))).map(p=>p.asOf)).sort();
 const asOf=dates.at(-1)||null;
-const first=dates[0]||asOf;
+const first=[...dates,...snapshots.map(p=>p.date)].sort()[0]||asOf;
 const posts=[...new Map([...snapshots].sort((a,b)=>a.asOf.localeCompare(b.asOf)).map(p=>[p.cid+'|'+p.ch,p])).values()];
 const latestAttempt=ch=>data.collection.filter(r=>r&&r.ch===ch&&stamp(r.attemptedAt)!==null)
  .sort((a,b)=>stamp(a.attemptedAt)-stamp(b.attemptedAt)).at(-1);

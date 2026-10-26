@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (!document.querySelector('[data-chatbot-script]')) {
+    if (!document.querySelector('link[href^="css/chatbot.css"]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet'; style.href = 'css/chatbot.css?v=1'; document.head.append(style);
+    }
+    const script = document.createElement('script');
+    script.type = 'module'; script.src = 'js/chatbot.js?v=1'; script.dataset.chatbotScript = 'true'; document.head.append(script);
+  }
   const pageMap = [
     ["index.html", "HOME"],
     ["virtual-busan.html", "버츄얼 부산"],
@@ -43,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="social-link" href="https://www.youtube.com/@Virtualbusan" target="_blank" rel="noopener noreferrer" aria-label="버츄얼 부산 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
           </div>
         </div>
-        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav>`;
+        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}<a href="contact.html">문의하기</a></nav>`;
     }
     if (footerBottom) footerBottom.firstElementChild.textContent = "771 LAYERS · Busan Tourism Content Archive";
   }

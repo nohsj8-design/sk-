@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "endpoint": "https://xbxozzwccjpwuxcdzrup.supabase.co/functions/v1/portfolio-inquiry",
+  "publicKey": "sb_publishable_rc8I2O09p_oRzK4SsWzZ0Q_4iz6OBl8",
+  "privacyVersion": "2026-10-26-v1",
+  "privacyNotice": "이름·이메일·문의 내용을 문의 확인과 답변에 이용하며, 접수 30일 경과 후 일일 자동 정리 시 삭제합니다. 과도한 접수 방지를 위한 IP·이메일 해시는 2일 경과 후 정리하며 원본 IP는 저장하지 않습니다. 동의를 거부할 수 있으며, 거부 시 접수가 제한됩니다. 민감정보나 비밀번호는 입력하지 마세요.",
+  "labels": {
+    "name": "이름", "email": "답변받을 이메일", "message": "문의 내용 (10–2,000자)",
+    "consent": "개인정보 수집·이용에 동의합니다. (필수)", "submit": "문의 남기기 →",
+    "submitting": "접수 중입니다…", "success": "문의가 접수되었습니다. 남겨주신 이메일로 답변드릴 예정입니다.",
+    "unavailable": "문의 접수 연결을 준비 중입니다. 현재 입력 내용은 전송되지 않습니다.",
+    "failed": "접수하지 못했습니다. 잠시 후 다시 시도해 주세요.", "limited": "접수 한도에 도달했습니다. 시간을 두고 다시 이용해 주세요.", "invalid": "입력 내용과 필수 동의를 확인해 주세요."
+  }
+}

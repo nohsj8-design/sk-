@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pageMap = [
     ["index.html", "HOME"],
+    ["virtual-busan.html", "버츄얼 부산"],
     ["contents.html", "CONTENTS"],
     ["report.html", "REPORT"],
     ["sns.html", "SNS"],
     ["final-project.html", "FINAL PROJECT"],
     ["locatorial.html", "LOC.TORIAL"],
-    ["4dits.html", "4 DITS (771)"],
     ["brand.html", "BRAND"]
   ];
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navList) {
     navList.innerHTML = pageMap.map(([href, label]) => {
       const isActive = href === currentPage;
-      const isFeatured = href === "4dits.html" || href === "locatorial.html";
+      const isFeatured = href === "virtual-busan.html" || href === "locatorial.html";
       const className = `${isActive ? "active" : ""}${isFeatured ? " nav-featured" : ""}`.trim();
       const attributes = `${className ? ` class="${className}"` : ""}${isActive ? ' aria-current="page"' : ""}`;
       return `<li><a${attributes} href="${href}">${label}</a></li>`;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       footerMain.innerHTML = `
         <div>
           <a class="footer-brand" href="index.html" aria-label="771 LAYERS 홈"><img src="assets/images/brand/771-layers-logo-white.png" alt="771 LAYERS"></a>
-          <p class="footer-title">부산의 시간과 장소를<br>새로운 콘텐츠의 층으로 쌓습니다.</p>
+          <p class="footer-title">부산의 공간에서,<br>새로운 이야기가 시작됩니다.</p>
           <div class="footer-social" aria-label="소셜 미디어">
             <a class="social-link" href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 새 창에서 열기"><span class="social-icon instagram" aria-hidden="true"></span><span>Instagram</span></a>
             <a class="social-link" href="https://www.youtube.com/@Virtualbusan" target="_blank" rel="noopener noreferrer" aria-label="버츄얼 부산 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>

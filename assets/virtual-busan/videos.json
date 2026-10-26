@@ -1,0 +1,22 @@
+{
+  "channel": "버츄얼 부산",
+  "url": "https://www.youtube.com/@Virtualbusan",
+  "reviewedAt": "2026-10-26",
+  "categories": [
+    {"id":"cinematic","label":"SF · 시네마틱"},
+    {"id":"character","label":"캐릭터 · 로컬 스토리"},
+    {"id":"reimagined","label":"다시 상상한 부산"},
+    {"id":"atmosphere","label":"공간 · 무드"}
+  ],
+  "items": [
+    {"id":"etdGWS8lBOE","title":"(SF 부산) 어느날, 부산의 바다가 하늘로 올라갔다 | EP. 1","category":"cinematic","format":"video","description":"부산의 바다와 도시를 새로운 세계로 연결하는 AI 시네마틱의 첫 번째 에피소드."},
+    {"id":"g64_wXF4Roo","title":"(SF 부산) “부산의 상상력” , “AI 판타지” | 세계를 연결하다 | EP. 2","category":"cinematic","format":"video","description":"너울역을 중심으로 두 세계의 연결을 이어가는 SF 부산의 두 번째 에피소드."},
+    {"id":"KIMC2qKvTSE","title":"영화의 도시 ! 부산국제영화제 습격한 토마토들 🍅 | 캐릭터 VLOG","category":"character","format":"video","description":"대저토마토에서 출발한 킹토와 풋토가 영화의전당을 만나는 비공식 팬메이드 VLOG."},
+    {"id":"LS5rPnruOUM","title":"해동용궁사에 왔으면 나도 찍어줘요! 🐉📸","category":"character","format":"short","description":"해동용궁사라는 장소에 아기 용의 상상을 더한 짧은 AI 캐릭터 이야기."},
+    {"id":"ol4yp6QLIFU","title":"스테인드글라스로 표현된 부산 전포 카페거리","category":"reimagined","format":"short","description":"전포 카페거리의 풍경을 빛과 색이 겹치는 스테인드글라스로 재해석합니다."},
+    {"id":"zXyknTjiwMY","title":"부산의 16개 구·군을 의인화시키면?","category":"character","format":"short","description":"부산의 서로 다른 지역성과 분위기를 가상의 인물로 풀어낸 캐릭터 실험."},
+    {"id":"6e5lO6iEXos","title":"부산 광안리 축제를 조선 시대 풍속화로 만들면?","category":"reimagined","format":"short","description":"오늘의 광안리 축제에 옛 풍속화의 시선을 겹쳐보는 시각적 상상."},
+    {"id":"B6y_7RtQI-0","title":"부산의 풍경을 오븐에 넣어봤다 🥐 | 판타지 베이커리 부산","category":"reimagined","format":"short","description":"부산의 랜드마크를 빵의 질감과 크림의 풍경으로 바꿔보는 판타지 베이커리."},
+    {"id":"it90I8WfpUs","title":"부산 모티브 버츄얼 카페 (AI Created, Busan) l Virtual Busan Cafe ☕","category":"atmosphere","format":"video","description":"바다와 커피 문화에서 영감을 얻어 만든 가상의 부산 카페와 공간의 무드."}
+  ]
+}

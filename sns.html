@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="부산의 장소와 문화를 AI와 창작으로 재해석하는 통합 YouTube 채널, 버츄얼 부산을 소개합니다.">
-  <title>버츄얼 부산 | 771 LAYERS</title>
+  <meta name="description" content="Instagram·Facebook·YouTube 채널의 최신 수집 성과를 확인하는 771 LAYERS SNS KPI 대시보드입니다.">
+  <title>SNS 성과 대시보드 | 771 LAYERS</title>
   <link rel="stylesheet" href="css/style.css?v=28">
   <link rel="stylesheet" href="css/responsive.css?v=11">
   <link rel="stylesheet" href="css/sns-virtual-busan.css?v=1">
+  <link rel="stylesheet" href="css/sns-dashboard.css?v=1">
+  <script src="js/sns-dashboard.js?v=1" defer></script>
   <script src="js/main.js?v=22" defer></script>
 </head>
 <body class="sns-page">
@@ -30,10 +32,21 @@
   </header>
 
   <main id="main-content">
+    <section class="sns-dashboard-section" aria-labelledby="sns-dashboard-title">
+      <div class="container">
+        <div class="sns-dashboard-heading">
+          <div><span class="eyebrow">SNS PERFORMANCE</span><h1 id="sns-dashboard-title">채널의 성장을 기록합니다.</h1><p>Instagram · Facebook · YouTube의 수집된 성과를 확인하세요.</p></div>
+          <a href="sns-dashboard/index.html" target="_blank" rel="noopener noreferrer">대시보드 크게 보기 ↗</a>
+        </div>
+        <div class="sns-dashboard-toolbar"><p id="sns-dashboard-status" role="status">최신 수집 내용을 불러옵니다.</p><button type="button" id="sns-dashboard-refresh">새로고침 ↻</button></div>
+        <iframe id="sns-dashboard-frame" src="sns-dashboard/index.html" title="SNS KPI 성과 대시보드" sandbox="allow-scripts allow-downloads" referrerpolicy="no-referrer"></iframe>
+        <noscript><p>전체 대시보드는 위의 ‘대시보드 크게 보기’ 링크에서 확인할 수 있습니다.</p></noscript>
+      </div>
+    </section>
     <section class="page-hero">
       <div class="container">
         <div class="page-index"><span></span>OUR CHANNEL</div>
-        <h1 class="page-title">부산을 새롭게<br>상상하는 채널</h1>
+        <h2 class="page-title">부산을 새롭게<br>상상하는 채널</h2>
         <p class="lead">장소에서 이야기로, 여행에서 창작으로.<br>버츄얼 부산에서 새로운 부산을 만납니다.</p>
       </div>
     </section>

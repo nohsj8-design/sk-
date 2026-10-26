@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS KPI 대시보드</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F5F7;font-family:'Noto Sans KR','Pretendard',system-ui,sans-serif;color:#14181F}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 24px 64px;display:flex;flex-direction:column;gap:24px}
+.card{background:#fff;border:1px solid #E1E4EA;border-radius:12px;padding:20px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:28px}.h2{font-size:18px;font-weight:700;margin:0}
+.sub{font-size:13px;color:#4A5262}
+.btn,.pill{min-height:44px;padding:0 16px;border:1px solid #C5CAD4;background:#fff;font:inherit;font-size:14px;cursor:pointer;color:#14181F;border-radius:8px}
+.pill{border-radius:22px}.btn:hover{background:#F0F2F5}
+.pri,.pill.on{background:#0F5C57;color:#fff;border-color:#0F5C57}.pri:hover{background:#0B4A46}
+table{border-collapse:collapse;width:100%}
+th{text-align:right;font-size:12px;color:#4A5262;font-weight:500;padding:10px 8px;border-bottom:1px solid #E1E4EA}
+td{text-align:right;padding:12px 8px;border-bottom:1px solid #EEF0F3;font-size:14px}
+th:first-child,td:first-child{text-align:left}
+.ov{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.dot{width:10px;height:10px;border-radius:5px;display:inline-block}
+.bars{display:flex;align-items:flex-end;gap:3px;height:64px}
+.bars i{flex:1;border-radius:2px 2px 0 0}
+.lk{background:none;border:0;color:#0F5C57;text-decoration:underline;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
+input{min-height:44px;width:160px;padding:0 12px;border:1px solid #8A92A3;border-radius:8px;font:inherit}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="dash" style="display:flex;flex-direction:column;gap:24px">
+ <div class="row">
+  <div><h1>SNS KPI 대시보드</h1><div class="sub" id="today"></div></div>
+  <button class="lk" data-go="log">업데이트 기록 보기 →</button>
+ </div>
+ <div class="card row" id="alert"></div>
+ <div class="card" id="kpi" style="display:flex;flex-direction:column;gap:16px"></div>
+ <div class="row"><h2 class="h2">채널별 인사이트</h2><div class="row" style="gap:8px" id="rangeBar"></div></div>
+ <div class="grid" id="chans"></div>
+ <div class="card" id="metrics"></div>
+ <div class="card" id="contents"></div>
+</div>
+<div id="log" class="hide" style="display:none;flex-direction:column;gap:20px;max-width:800px">
+ <button class="lk" data-go="dash" style="align-self:flex-start">← 대시보드로 돌아가기</button>
+ <h1>업데이트 기록</h1>
+ <div class="card"><b>v0.2.0 · 2026-10-23</b><ul style="line-height:1.8"><li>HTML 내 JSON 데이터 구역으로 수집 데이터를 관리합니다.</li><li>기준일 자동 계산, 미수집 표시, 부분 합계 및 수집 실패 안내를 추가했습니다.</li><li>초안의 샘플 생성 코드를 제거했습니다.</li></ul></div>
+ <div class="card">
+  <div style="display:flex;gap:12px;align-items:baseline"><b style="font-size:18px">v0.1.0</b><span class="sub">2026-10-23 · 초안 (단독 HTML)</span></div>
+  <ul style="line-height:1.8;font-size:14px;padding-left:20px">
+   <li>주간 조회수 KPI(목표 10,000) 달성률 · 진행 바 · 남은 조회수 · 일평균 표시</li>
+   <li>월요일 입력 알림 배너 + 반복 일정(.ics) 다운로드, 직전 실적 기반 추천 목표</li>
+   <li>채널별 인사이트: 1일 / 7일 / 30일 / 전체 필터, 이전 기간 대비 증감</li>
+   <li>지표별 수치: 팔로워, 게시 항목(중복 제외), 조회수, 전환수, 댓글 수</li>
+   <li>콘텐츠별 인사이트: 채널 필터, 조회수 순 TOP 10</li>
+   <li>각 섹션 CSV 다운로드, 임의(샘플) 데이터 사용</li>
+  </ul>
+ </div>
+ <div class="card sub">실제 지표는 수집 후 반영됩니다. 이전 버전의 샘플 수치는 실제 실적에 포함하지 않습니다.</div>
+</div>
+</div>
+<!--
+ASIDE UPDATE GUIDE / 자동 업데이트 규약
+수정 범위: 아래 id="dashboard-data" JSON 내용만 수정합니다. 화면 코드는 수정하지 않습니다.
+현재 실제 데이터는 비어 있습니다. 샘플 수치나 추정치를 실적으로 넣지 않습니다.
+1. channels[].url에 검증한 실제 계정 URL을 넣습니다.
+2. daily: 한국시간 일별 실적. date=YYYY-MM-DD, ch=ig|fb|yt,
+   views=그날 조회수, conv=그날 저장+공유/리포스트+좋아요(동일 정의로 수집 가능한 경우만),
+   com=그날 댓글 수, fol=해당일 종료 기준 팔로워/구독자 수.
+   예시 형식(수치는 형식 설명용): {"date":"2026-10-23","ch":"ig","views":123,"conv":null,"com":4,"fol":100,"source":"https://...","collectedAt":"2026-10-24T09:00:00+09:00"}
+   일별 수치만 daily에 저장합니다. 누적 조회수나 최근 7일 합계를 하루 실적으로 넣지 않습니다.
+   미수집은 null 또는 키 생략, 실제 0은 숫자 0. 숫자 문자열, 음수, 추정값은 금지합니다.
+   날짜+채널로 기존 항목을 찾아 성공한 지표만 갱신하고, 실패한 지표/날짜는 기존 값을 보존합니다.
+   같은 키의 항목이 중복되어도 화면은 뒤의 유효 숫자만 병합하며 null은 기존 값을 덮지 않습니다.
+   누락 날짜를 이전 날짜 값으로 채우지 않습니다. 기존 일별 이력을 삭제하지 않습니다.
+3. posts: 콘텐츠별 누적 스냅샷. cid=동일 콘텐츠의 채널 공통 식별자(문자열),
+   ch, title, date=게시일, asOf=지표 기준일, views, conv, com, source, collectedAt, thumb(선택).
+   예시 형식: {"cid":"post-001","ch":"ig","title":"제목","date":"2026-10-23","asOf":"2026-10-24","views":123,"conv":null,"com":4,"source":"https://...","collectedAt":"2026-10-24T09:00:00+09:00"}
+   cid+ch+asOf로 갱신합니다. 게시일과 누적 수치 기준일을 혼동하지 않습니다.
+   콘텐츠 누적값은 일별 KPI 합계에 더하지 않습니다. 미수집 지표는 기존 값을 보존합니다.
+4. collection: 매 실행의 채널별 수집 결과를 추가합니다.
+   {"ch":"ig","attemptedAt":"2026-10-24T09:00:00+09:00","status":"ok|partial|failed","message":"미수집 지표 또는 실패 이유"}
+   updatedAt은 마지막 실제 성공 수집 시각(ISO 8601, 시간대 포함). 전체 실패 시 바꾸지 않습니다.
+   날짜 기준은 daily.date와 posts.asOf의 최신 유효 데이터 날짜에서 자동 계산합니다.
+5. goal은 주간 목표. weeklyGoals는 실제 목표 이력만 [{"week":"2026-10-19","goal":10000}] 형식으로 저장합니다.
+6. JSON 문자열의 < 문자는 \u003c로 이스케이프합니다(특히 닫는 script 태그).
+7. 커밋 전 JSON 문법, 지표의 기간/정의, 날짜+채널 중복, 기존 이력 보존을 확인합니다.
+   수집 및 커밋 성공과 배포 성공은 별도로 확인합니다. 이 파일만으로 예약 실행/배포가 설정되지는 않습니다.
+-->
+<script id="dashboard-data" type="application/json">
+{
+  "schemaVersion": 1,
+  "timeZone": "Asia/Seoul",
+  "goal": 10000,
+  "updatedAt": "2026-10-26T00:17:43.814Z",
+  "channels": [
+    {
+      "id": "ig",
+      "name": "Instagram",
+      "color": "#C13584",
+      "url": "https://www.instagram.com/huyangbusan/"
+    },
+    {
+      "id": "fb",
+      "name": "Facebook",
+      "color": "#1877F2",
+      "url": "https://www.facebook.com/profile.php?id=61595306941097"
+    },
+    {
+      "id": "yt",
+      "name": "YouTube",
+      "color": "#D93025",
+      "url": "https://www.youtube.com/channel/UCQipWfDNW3Jyh-cZTxS-l5A"
+    }
+  ],
+  "daily": [],
+  "posts": [
+    {
+      "cid": "yt-ol4yp6QLIFU",
+      "ch": "yt",
+      "title": "스테인드글라스로 표현된 부산 전포 카페거리",
+      "date": "2026-10-25",
+      "asOf": "2026-10-26",
+      "views": 15,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=ol4yp6QLIFU",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-EjxKXxyIb9U",
+      "ch": "yt",
+      "title": "부산 갈매기 길들이기",
+      "date": "2026-10-25",
+      "asOf": "2026-10-26",
+      "views": 1,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=EjxKXxyIb9U",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-zXyknTjiwMY",
+      "ch": "yt",
+      "title": "부산의 16개 구·군을 의인화시키면?",
+      "date": "2026-10-23",
+      "asOf": "2026-10-26",
+      "views": 752,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=zXyknTjiwMY",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-6e5lO6iEXos",
+      "ch": "yt",
+      "title": "부산 광안리 축제를 조선 시대 풍속화로 만들면?",
+      "date": "2026-10-23",
+      "asOf": "2026-10-26",
+      "views": 33,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=6e5lO6iEXos",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-5NVXo_Ds8Lk",
+      "ch": "yt",
+      "title": "부산의 한 해를 한 잔에 담으면?",
+      "date": "2026-10-21",
+      "asOf": "2026-10-26",
+      "views": 1281,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=5NVXo_Ds8Lk",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-a-Ur5P8Adow",
+      "ch": "yt",
+      "title": "당신의 부산 최애 푸드는?",
+      "date": "2026-10-20",
+      "asOf": "2026-10-26",
+      "views": 439,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=a-Ur5P8Adow",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-B6y_7RtQI-0",
+      "ch": "yt",
+      "title": "부산의 풍경을 오븐에 넣어봤다 | 판타지 베이커리 부산",
+      "date": "2026-10-14",
+      "asOf": "2026-10-26",
+      "views": 12,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=B6y_7RtQI-0",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-Yrdr9obbqaY",
+      "ch": "yt",
+      "title": "갓 구운 부산 씨앗호떡 한입 ! | 남포동 포동포동",
+      "date": "2026-10-02",
+      "asOf": "2026-10-26",
+      "views": 18,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=Yrdr9obbqaY",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-4KvRC7-BmWA",
+      "ch": "yt",
+      "title": "부산 거북이 라이더의 야경 질주 | 수영강부터 전포까지",
+      "date": "2026-10-01",
+      "asOf": "2026-10-26",
+      "views": 25,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=4KvRC7-BmWA",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    },
+    {
+      "cid": "yt-XmL_RIqOois",
+      "ch": "yt",
+      "title": "수달이 알려주는 구명조끼의 중요성_ 2026 해양안전 콘텐츠 공모전",
+      "date": "2026-10-01",
+      "asOf": "2026-10-26",
+      "views": 51,
+      "com": 0,
+      "conv": null,
+      "source": "https://www.youtube.com/watch?v=XmL_RIqOois",
+      "collectedAt": "2026-10-26T00:17:43.814Z"
+    }
+  ],
+  "weeklyGoals": [],
+  "collection": [
+    {
+      "ch": "ig",
+      "attemptedAt": "2026-10-26T00:17:43.814Z",
+      "status": "partial",
+      "message": "최근 30일(UI 정확한 시작·종료일 미표시): 조회 778, 조회한 사람 593, 반응 22, 참여 계정 6, 프로필 방문 28. 현재 팔로워 9, 게시물 6. 구·군 캐릭터 게시물 누적 조회 162, 좋아요 2, 댓글·저장·공유 0. 정확한 게시일 미확보로 posts 미반영. 일별 KST 실적 미수집. 인사이트: 개별 게시물 비팔로워 조회 89.4%로 신규 도달은 있으나 프로필 활동·팔로우 0. 출처 https://www.instagram.com/accounts/insights/?timeframe=30 및 https://www.instagram.com/insights/media/4014005589007873004/"
+    },
+    {
+      "ch": "fb",
+      "attemptedAt": "2026-10-26T00:17:43.814Z",
+      "status": "partial",
+      "message": "9/28~10/25 최근 28일: 조회 579, 3초 조회 27, 1분 조회 0, 시청시간 7분14초, 참여 4, 공감 1, 댓글·공유 0, 방문 7, 순팔로우 1. 현재 팔로워 1. 홍법사 게시물 누적 조회 20, 댓글·공유·공감 0. 게시일 UI 10/22 11:22(시간대 미표시)로 KST posts 미반영. 일별 실적 미수집. 인사이트: 비팔로워 조회 99.5%, 여러 사진 조회 비중 46.6%, 릴스 38%. 노출은 발생하나 반응 확대가 필요. 출처 https://www.facebook.com/professional_dashboard/profile_insights/views/ 및 https://www.facebook.com/professional_dashboard/insights/engagement"
+    },
+    {
+      "ch": "yt",
+      "attemptedAt": "2026-10-26T00:17:43.814Z",
+      "status": "partial",
+      "message": "Shorts 10건 누적 조회·댓글 수집. 최근 28일(9/27~10/24) 조회 2,927, 시청시간 4.8시간, 구독자 순증 2, 현재 구독자 2. KST 일별 실적·전환·일말 구독자 미수집. 인사이트: 한 잔 콘텐츠 1,281회, 구·군 의인화 752회로 수집 Shorts 중 상위. 게시 경과시간 차이로 형식 효과 단정 불가. 출처 https://studio.youtube.com/channel/UCQipWfDNW3Jyh-cZTxS-l5A/analytics/tab-overview/period-default"
+    }
+  ]
+}
+</script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=v=>typeof v==='number'&&Number.isFinite(v)&&v>=0;
+const fmt=v=>num(v)?Math.round(v).toLocaleString('ko-KR'):'—';
+const parseDay=s=>{
+ if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;
+ const d=new Date(s+'T00:00:00Z');
+ return Number.isFinite(+d)&&d.toISOString().slice(0,10)===s?d:null;
+};
+const iso=d=>d.toISOString().slice(0,10);
+const shift=(s,n)=>{const d=parseDay(s);d.setUTCDate(d.getUTCDate()+n);return iso(d)};
+const monday=s=>shift(s,-((parseDay(s).getUTCDay()+6)%7));
+const koreaDay=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const safeUrl=s=>{try{const u=new URL(s);return /^https?:$/.test(u.protocol)?u.href:''}catch{return ''}};
+const stamp=s=>typeof s==='string'&&/(Z|[+-]\d{2}:\d{2})$/.test(s)&&Number.isFinite(Date.parse(s))?Date.parse(s):null;
+const metricKeys=['views','conv','com','fol'];
+let data;
+try{
+ data=JSON.parse($('dashboard-data').textContent);
+ if(data.schemaVersion!==1||!Array.isArray(data.channels)||!Array.isArray(data.daily)||!Array.isArray(data.posts)||!Array.isArray(data.collection)||!Array.isArray(data.weeklyGoals))throw Error('schema');
+}catch{
+ $('today').textContent='데이터 형식을 확인해 주세요.';
+ $('alert').textContent='데이터를 읽지 못했습니다. 최근 정상 커밋의 데이터 구역을 복원해 주세요.';
+ return;
+}
+const chs=data.channels.filter(c=>c&&['ig','fb','yt'].includes(c.id));
+const cmap=Object.fromEntries(chs.map(c=>[c.id,c]));
+const merge=(records,keyFn,valid)=>{
+ const map=new Map();
+ records.filter(r=>r&&valid(r)).forEach(r=>{
+  const key=keyFn(r),old=map.get(key)||{},next={...old};
+  Object.keys(r).forEach(k=>{
+   if(metricKeys.includes(k)){if(num(r[k]))next[k]=r[k]}
+   else if(r[k]!==null&&r[k]!==undefined)next[k]=r[k];
+  });
+  map.set(key,next);
+ });
+ return [...map.values()];
+};
+const rows=merge(data.daily,r=>r.date+'|'+r.ch,r=>parseDay(r.date)&&cmap[r.ch])
+ .sort((a,b)=>a.date.localeCompare(b.date));
+const snapshots=merge(data.posts,p=>p.cid+'|'+p.ch+'|'+p.asOf,p=>
+ typeof p.cid==='string'&&p.cid&&cmap[p.ch]&&parseDay(p.date)&&parseDay(p.asOf)&&p.date<=p.asOf);
+const dates=rows.filter(r=>metricKeys.some(k=>num(r[k]))).map(r=>r.date)
+ .concat(snapshots.filter(p=>metricKeys.some(k=>num(p[k]))).map(p=>p.asOf)).sort();
+const asOf=dates.at(-1)||null;
+const first=dates[0]||asOf;
+const posts=[...new Map([...snapshots].sort((a,b)=>a.asOf.localeCompare(b.asOf)).map(p=>[p.cid+'|'+p.ch,p])).values()];
+const latestAttempt=ch=>data.collection.filter(r=>r&&r.ch===ch&&stamp(r.attemptedAt)!==null)
+ .sort((a,b)=>stamp(a.attemptedAt)-stamp(b.attemptedAt)).at(-1);
+const total=(list,k,expected=list.length)=>{
+ const known=list.filter(r=>num(r[k]));
+ return {value:known.length?known.reduce((a,r)=>a+r[k],0):null,partial:known.length<expected,known:known.length};
+};
+const show=t=>fmt(t.value)+(t.value!==null&&t.partial?' *':'');
+const inRange=(r,start,end)=>r.date>=start&&r.date<=end;
+const st={range:'7',ch:'all',goal:num(data.goal)&&data.goal>0?data.goal:10000};
+const labels={'1':'1일','7':'7일','30':'30일',all:'전체'};
+const act={};let aid=0;
+const on=fn=>{const k='a'+aid++;act[k]=fn;return 'data-a="'+k+'"'};
+function save(name,mime,text){
+ const u=URL.createObjectURL(new Blob([text],{type:mime})),a=document.createElement('a');
+ a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);
+}
+function csv(name,r){
+ const cell=v=>{let s=String(v??'');if(/^[=+@\t\r-]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};
+ save(name,'text/csv;charset=utf-8','\ufeff'+r.map(x=>x.map(cell).join(',')).join('\r\n'));
+}
+function calendar(){
+ const now=new Date(),today=koreaDay(),day=parseDay(today).getUTCDay();
+ const next=shift(today,((8-day)%7)||7).replace(/-/g,'');
+ const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SNS KPI//KO','BEGIN:VEVENT','UID:kpi-weekly@sns-kpi',
+ 'DTSTAMP:'+now.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''),
+ 'DTSTART;TZID=Asia/Seoul:'+next+'T090000','DTEND;TZID=Asia/Seoul:'+next+'T091500',
+ 'RRULE:FREQ=WEEKLY;BYDAY=MO','SUMMARY:SNS 주간 KPI 입력','END:VEVENT','END:VCALENDAR'].join('\r\n');
+ save('weekly-kpi-reminder.ics','text/calendar',ics);
+}
+function render(){
+ Object.keys(act).forEach(k=>delete act[k]);aid=0;
+ const end=asOf||koreaDay(),n=st.range==='all'?Math.max(1,Math.round((parseDay(end)-parseDay(first||end))/86400000)+1):Number(st.range);
+ const start=shift(end,1-n),prevStart=shift(start,-n),prevEnd=shift(start,-1);
+ const current=rows.filter(r=>inRange(r,start,end)),prev=rows.filter(r=>inRange(r,prevStart,prevEnd));
+ const mon=monday(end),weekDays=Math.round((parseDay(end)-parseDay(mon))/86400000)+1;
+ const wk=total(rows.filter(r=>inRange(r,mon,end)),'views',weekDays*chs.length);
+ const pct=wk.value===null?null:Math.round(wk.value/st.goal*1000)/10;
+ const hist=Array.from({length:4},(_,i)=>{
+  const week=shift(mon,-7*(4-i)),t=total(rows.filter(r=>inRange(r,week,shift(week,6))),'views',7*chs.length);
+  const goal=data.weeklyGoals.find(g=>g&&g.week===week&&num(g.goal)&&g.goal>0)?.goal??null;
+  return {week,...t,goal};
+ });
+ const complete=hist.every(h=>h.value!==null&&!h.partial);
+ const rec=complete?Math.max(1,Math.round(Math.max(hist[3].value*1.08,(hist[1].value+hist[2].value+hist[3].value)/3*1.05)/100)*100):null;
+ $('today').textContent='Instagram · Facebook · YouTube · '+(asOf?'실적 기준일 '+asOf:'실제 데이터 수집 대기')+
+ (stamp(data.updatedAt)!==null?' · 최근 수집 '+new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',dateStyle:'short',timeStyle:'short'}).format(new Date(data.updatedAt)):'');
+ const issues=chs.map(c=>{const a=latestAttempt(c.id);return a&&a.status!=='ok'?esc(c.name)+': '+esc(a.message||'수집 실패 또는 일부 미수집'):''}).filter(Boolean);
+ const stale=asOf&&asOf<shift(koreaDay(),-1);
+ $('alert').style.background=issues.length||stale?'#FFF3CD':'#E8F3F2';
+ $('alert').innerHTML='<div><b>'+(asOf?'실적 기준일 '+esc(asOf):'실제 수집 데이터가 아직 없습니다.')+'</b>'+
+ '<div class="sub">'+(asOf?'미수집은 —, 일부만 수집된 합계는 *로 표시합니다.':'샘플 수치를 제거했습니다. 첫 수집 후 지표가 표시됩니다.')+
+ (stale?' 최신 일자 데이터가 아직 수집되지 않았습니다.':'')+
+ (issues.length?'<br>'+issues.join('<br>'):'')+'</div></div><button class="btn" '+on(calendar)+'>월요일 알림 일정 추가 (.ics)</button>';
+ $('kpi').innerHTML='<div class="row"><h2 class="h2">주간 목표 KPI · 주간 조회수</h2><button class="btn" '+on(()=>csv('weekly_kpi.csv',
+ [['주 시작일','목표 조회수','확인된 조회수','수집 상태']].concat(hist.map(h=>[h.week,h.goal,h.value,h.partial?'미수집 포함':'완료']),[[mon,st.goal,wk.value,wk.partial?'미수집 포함':'완료']])
+ ))+'>CSV 다운로드</button></div>'+
+ '<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:baseline"><b style="font-size:56px">'+show(wk)+'</b><span>/ 목표 '+fmt(st.goal)+'</span><b style="font-size:28px;color:#0F5C57">'+(pct===null?'—':pct+'%'+(wk.partial?' *':''))+'</b></div>'+
+ '<div role="progressbar" aria-label="확인된 주간 조회수 달성률" aria-valuemin="0" aria-valuemax="100" '+(pct===null?'':'aria-valuenow="'+Math.min(100,pct)+'"')+' style="height:16px;background:#E8EBF0;border-radius:8px;overflow:hidden"><div style="height:100%;background:#0F5C57;width:'+Math.min(100,pct??0)+'%"></div></div>'+
+ '<div class="sub">'+mon+' ~ '+end+' · '+(wk.partial?'일부 지표 미수집: 달성률은 확인된 조회수 기준입니다.':'남은 조회수 '+fmt(wk.value===null?null:Math.max(0,st.goal-wk.value)))+'</div>'+
+ '<div class="row"><div><b>다음 주 추천 목표: '+(rec===null?'수집 이력 부족':fmt(rec)+'회')+'</b><div class="sub">최근 4주 일별 조회수가 모든 채널에서 수집되면 추천합니다.</div></div>'+
+ '<div class="row"><label for="goalIn">주간 목표</label><input id="goalIn" type="number" min="1" value="'+st.goal+'"><button class="btn pri" '+on(()=>{const v=Number($('goalIn').value);if(Number.isFinite(v)&&v>0){st.goal=v;render()}})+'>화면에 적용</button>'+
+ (rec===null?'':'<button class="btn" '+on(()=>{st.goal=rec;render()})+'>추천값 적용</button>')+'</div></div><div class="sub">화면에서 적용한 목표는 새로고침하면 초기화됩니다.</div>';
+ $('rangeBar').innerHTML=['1','7','30','all'].map(k=>'<button class="pill'+(st.range===k?' on':'')+'" '+on(()=>{st.range=k;render()})+'>'+labels[k]+'</button>').join('')+
+ '<button class="btn" id="dlChan">CSV 다운로드</button>';
+ const cd=chs.map(c=>{
+  const cr=current.filter(r=>r.ch===c.id),pr=prev.filter(r=>r.ch===c.id),views=total(cr,'views',n),pv=total(pr,'views',n);
+  const conv=total(cr,'conv',n),com=total(cr,'com',n);
+  const folRow=rows.filter(r=>r.ch===c.id&&r.date<=end&&num(r.fol)).at(-1);
+  const before=rows.filter(r=>r.ch===c.id&&r.date===prevEnd&&num(r.fol)).at(-1);
+  const fol=folRow?.fol??null,folGain=folRow?.date===end&&before?fol-before.fol:null;
+  const delta=st.range!=='all'&&!views.partial&&!pv.partial&&pv.value>0?Math.round((views.value-pv.value)/pv.value*1000)/10:null;
+  return {c,cr,views,conv,com,fol,folGain,folDate:folRow?.date,delta};
+ });
+ $('chans').innerHTML=cd.map(d=>{
+  const bs=d.cr.filter(r=>num(r.views)).slice(-30),mx=Math.max(1,...bs.map(r=>r.views)),color=/^#[0-9a-f]{6}$/i.test(d.c.color)?d.c.color:'#0F5C57';
+  return '<div class="card" style="display:flex;flex-direction:column;gap:12px"><b><span class="dot" style="background:'+color+'"></span> '+esc(d.c.name)+'</b>'+
+  '<b style="font-size:32px">'+show(d.views)+'</b><div class="sub">조회수 · 이전 기간 대비 '+(d.delta===null?'비교 불가':(d.delta>0?'+':'')+d.delta+'%')+'</div>'+
+  '<div>전환 '+show(d.conv)+' · 댓글 '+show(d.com)+'</div><div class="sub">팔로워/구독자 '+fmt(d.fol)+(d.folDate?' ('+d.folDate+' 기준)':'')+'</div>'+
+  '<div class="bars">'+bs.map(r=>'<i title="'+r.date+': '+fmt(r.views)+'" style="background:'+color+';height:'+Math.max(2,r.views/mx*64)+'px"></i>').join('')+'</div></div>';
+ }).join('');
+ $('dlChan').onclick=()=>csv('channel_insight_'+st.range+'.csv',[['채널','조회수','조회수 수집 상태','전환수','댓글','이전 기간 대비(%)']].concat(cd.map(d=>[d.c.name,d.views.value,d.views.partial?'미수집 포함':'완료',d.conv.value,d.com.value,d.delta])));
+ const aggregate=k=>total(cd.map(d=>({v:d[k]})),'v',chs.length);
+ const signed=v=>v===null?'—':(v>0?'+':'')+Math.round(v).toLocaleString('ko-KR');
+ const sumSigned=cd.every(d=>d.folGain!==null)?cd.reduce((s,d)=>s+d.folGain,0):null;
+ const countPosts=posts.filter(p=>inRange(p,start,end)),uniq=new Set(countPosts.map(p=>p.cid)).size;
+ const postCount=c=>countPosts.some(p=>p.ch===c)?fmt(countPosts.filter(p=>p.ch===c).length):'—';
+ const sums=k=>show(total(current,k,n*chs.length));
+ const m=[
+ ['팔로워/구독자 (최근 수집)',cd.map(d=>fmt(d.fol)),show(aggregate('fol'))],
+ ['팔로워/구독자 증감',cd.map(d=>signed(d.folGain)),signed(sumSigned)],
+ ['수집된 게시 항목',cd.map(d=>postCount(d.c.id)),uniq?fmt(uniq):'—'],
+ ['조회수',cd.map(d=>show(d.views)),sums('views')],
+ ['전환수',cd.map(d=>show(d.conv)),sums('conv')],
+ ['댓글 수',cd.map(d=>show(d.com)),sums('com')]
+ ];
+ $('metrics').innerHTML='<div class="row"><h2 class="h2">지표별 수치 ('+labels[st.range]+')</h2><button class="btn" id="dlMet">CSV 다운로드</button></div>'+
+ '<div class="ov"><table><thead><tr><th>지표</th>'+chs.map(c=>'<th>'+esc(c.name)+'</th>').join('')+'<th>합계</th></tr></thead><tbody>'+
+ m.map(r=>'<tr><td>'+r[0]+'</td>'+r[1].map(v=>'<td>'+v+'</td>').join('')+'<td><b>'+r[2]+'</b></td></tr>').join('')+'</tbody></table></div>'+
+ '<div class="sub">* 미수집을 포함한 부분 합계입니다. 팔로워 증감은 기간 직전일과 기준일의 수치가 모두 있을 때 표시합니다. 게시 항목 합계는 같은 cid를 한 번만 셉니다. 전환수는 저장·공유/리포스트·좋아요 합계이며, 수집할 수 없으면 —로 표시합니다.</div>';
+ $('dlMet').onclick=()=>csv('metrics_'+st.range+'.csv',[['지표',...chs.map(c=>c.name),'합계']].concat(m.map(r=>[r[0],...r[1],r[2]])));
+ const list=countPosts.filter(p=>st.ch==='all'||p.ch===st.ch).sort((a,b)=>(b.views??-1)-(a.views??-1));
+ $('contents').innerHTML='<div class="row"><h2 class="h2">콘텐츠별 인사이트</h2><div class="row">'+[['all','전체'],...chs.map(c=>[c.id,c.name])].map(([id,name])=>'<button class="pill'+(st.ch===id?' on':'')+'" '+on(()=>{st.ch=id;render()})+'>'+esc(name)+'</button>').join('')+
+ '<button class="btn" id="dlCon">CSV 다운로드</button></div></div><div class="sub">'+start+' ~ '+end+' 게시 콘텐츠 · 수치는 콘텐츠별 최근 수집 누적값이며 기간 내 발생량이 아닙니다.</div>'+
+ '<div class="ov"><table><thead><tr><th>콘텐츠</th><th>채널</th><th>게시일</th><th>수집 기준일</th><th>누적 조회수</th><th>누적 전환</th><th>누적 댓글</th></tr></thead><tbody>'+
+ list.slice(0,10).map(p=>'<tr><td>'+esc(p.title||p.cid)+'</td><td>'+esc(cmap[p.ch].name)+'</td><td>'+p.date+'</td><td>'+p.asOf+'</td><td>'+fmt(p.views)+'</td><td>'+fmt(p.conv)+'</td><td>'+fmt(p.com)+'</td></tr>').join('')+'</tbody></table></div>'+
+ (list.length?'':'<div class="sub" style="padding:16px 0">이 기간에 수집된 콘텐츠가 없습니다.</div>');
+ $('dlCon').onclick=()=>csv('content_insight_'+st.range+'.csv',[['콘텐츠','채널','게시일','수집 기준일','누적 조회수','누적 전환','누적 댓글']].concat(list.map(p=>[p.title,cmap[p.ch].name,p.date,p.asOf,p.views,p.conv,p.com])));
+}
+document.addEventListener('click',e=>{
+ const a=e.target.closest('[data-a]');if(a&&act[a.dataset.a]){act[a.dataset.a]();return}
+ const g=e.target.closest('[data-go]');
+ if(g){const v=g.dataset.go;$('dash').style.display=v==='dash'?'flex':'none';$('log').style.display=v==='log'?'flex':'none';window.scrollTo(0,0)}
+});
+render();
+})();
+</script>
+<script>(()=>{let previous=0;const send=()=>{const height=Math.ceil(document.documentElement.getBoundingClientRect().height);if(height!==previous){previous=height;parent.postMessage({type:'771-sns-dashboard-height',height},'*')}};new ResizeObserver(send).observe(document.body);addEventListener('load',send);send()})();</script>
+</body>
+</html>

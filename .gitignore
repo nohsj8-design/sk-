@@ -1,0 +1,7 @@
+# Local credentials must never be committed or deployed.
+.env
+.env.*
+!.env.example
+*.local
+node_modules/
+.cache/

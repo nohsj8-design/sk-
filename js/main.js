@@ -7,66 +7,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const script = document.createElement('script');
     script.type = 'module'; script.src = 'js/chatbot.js?v=1'; script.dataset.chatbotScript = 'true'; document.head.append(script);
   }
-  const pageMap = [
-    ["index.html", "HOME"],
-    ["virtual-busan.html", "버츄얼 부산"],
-    ["contents.html", "CONTENTS"],
-    ["report.html", "REPORT"],
-    ["sns.html", "SNS"],
-    ["final-project.html", "FINAL PROJECT"],
-    ["locatorial.html", "LOC.TORIAL"],
-    ["brand.html", "BRAND"]
-  ];
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const brandLink = document.querySelector(".brand");
-  const navList = document.querySelector(".site-nav ul");
-  const footer = document.querySelector(".site-footer");
-  const main = document.querySelector("main");
-
-  if (brandLink) {
-    brandLink.setAttribute("aria-label", "771 LAYERS 홈");
-    brandLink.innerHTML = '<img class="brand-mark" src="assets/images/brand/771-layers-logo-white.png" alt="771 LAYERS">';
-  }
-
-  if (navList) {
-    navList.innerHTML = pageMap.map(([href, label]) => {
-      const isActive = href === currentPage;
-      const isFeatured = href === "virtual-busan.html" || href === "locatorial.html";
-      const className = `${isActive ? "active" : ""}${isFeatured ? " nav-featured" : ""}`.trim();
-      const attributes = `${className ? ` class="${className}"` : ""}${isActive ? ' aria-current="page"' : ""}`;
-      return `<li><a${attributes} href="${href}">${label}</a></li>`;
-    }).join("");
-  }
-
-  if (footer) {
-    const footerMain = footer.querySelector(".footer-main");
-    const footerBottom = footer.querySelector(".footer-bottom");
-    if (footerMain) {
-      footerMain.innerHTML = `
-        <div>
-          <a class="footer-brand" href="index.html" aria-label="771 LAYERS 홈"><img src="assets/images/brand/771-layers-logo-white.png" alt="771 LAYERS"></a>
-          <p class="footer-title">부산의 공간에서,<br>새로운 이야기가 시작됩니다.</p>
-          <div class="footer-social" aria-label="소셜 미디어">
-            <a class="social-link" href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 새 창에서 열기"><span class="social-icon instagram" aria-hidden="true"></span><span>Instagram</span></a>
-            <a class="social-link" href="https://www.youtube.com/@Virtualbusan" target="_blank" rel="noopener noreferrer" aria-label="버츄얼 부산 유튜브 새 창에서 열기"><span class="social-icon youtube" aria-hidden="true"></span><span>YouTube</span></a>
-          </div>
-        </div>
-        <nav class="footer-nav" aria-label="푸터 메뉴">${pageMap.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}<a href="contact.html">문의하기</a></nav>`;
-    }
-    if (footerBottom) footerBottom.firstElementChild.textContent = "771 LAYERS · Busan Tourism Content Archive";
-  }
-
-  if (main && currentPage !== "index.html") {
-    const currentIndex = pageMap.findIndex(([href]) => href === currentPage);
-    if (currentIndex > 0 || currentPage === "nampo-podong.html") {
-      const previous = currentPage === "nampo-podong.html" ? ["contents.html", "CONTENTS"] : pageMap[currentIndex - 1];
-      const next = currentPage === "nampo-podong.html" ? ["report.html", "REPORT"] : pageMap[currentIndex + 1] || pageMap[0];
-      const switcher = document.createElement("nav");
-      switcher.className = "page-switcher";
-      switcher.setAttribute("aria-label", "페이지 이동");
-      switcher.innerHTML = `<div class="container page-switcher-inner"><a href="${previous[0]}"><small>PREVIOUS</small><span>← ${previous[1]}</span></a><a class="page-home-link" href="index.html"><small>ARCHIVE</small><span>HOME</span></a><a href="${next[0]}"><small>NEXT</small><span>${next[1]} →</span></a></div>`;
-      main.insertAdjacentElement("afterend", switcher);
-    }
+  const pageMap = [["index.html", "HOME"], ["contents.html", "CONTENT"], ["projects.html", "PROJECTS"], ["final-project.html", "FINAL PROJECT"], ["report.html", "REPORT"], ["brand.html", "BRAND"]];
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const main = document.querySelector('main');
+  const projectPages = ['virtual-busan.html', 'locatorial.html', 'sns.html', 'nampo-podong.html'];
+  const activePage = projectPages.includes(currentPage) ? 'projects.html' : currentPage;
+  document.querySelectorAll('.site-nav a').forEach(link => {
+    const active = link.getAttribute('href') === activePage;
+    link.classList.toggle('active', active);
+    link.classList.remove('nav-featured');
+    if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+  });
+  document.querySelectorAll('.ab-sidebar a').forEach(link => {
+    const exact = link.getAttribute('href') === currentPage;
+    if (exact) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
+  });
+  if (currentPage === 'sns.html') {
+    const channels = document.createElement('section');
+    channels.className = 'ab-section';
+    channels.innerHTML = '<div class="container"><span class="ab-kicker">VIRTUAL BUSAN / CHANNELS</span><h2>프로젝트 SNS 채널</h2><div class="ab-actions"><a href="https://www.youtube.com/@Virtualbusan" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="https://www.instagram.com/huyangbusan/" target="_blank" rel="noopener noreferrer">Instagram · 기존 운영 기록 ↗</a></div><p>기존 SNS 운영 자료를 버츄얼 부산 프로젝트 아래에서 살펴봅니다.</p></div>';
+    main?.append(channels);
   }
 
   const brandHero = document.querySelector("[data-brand-hero]");

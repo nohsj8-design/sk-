@@ -1,7 +1,7 @@
 import {findNode,restoreSession} from './chatbot-rules.mjs';
 import {loadInquiryConfig,createInquiryForm} from './inquiry.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;};
-const root=el('aside',null,'chatbot');root.setAttribute('aria-label','771 채팅 안내');
+const root=el('aside',null,'chatbot');root.setAttribute('aria-label','부산의 예술 탐색 안내');
 const launch=el('button','문의 · 안내 ↗','chatbot-launch');launch.type='button';launch.setAttribute('aria-controls','chatbot-panel');launch.setAttribute('aria-expanded','false');root.append(launch);document.body.append(root);
 async function start(){
   const response=await fetch(new URL('../assets/chatbot/flow.json',import.meta.url),{cache:'no-store'});if(!response.ok)throw new Error('flow');const flow=await response.json();
